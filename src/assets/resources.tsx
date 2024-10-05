@@ -1,11 +1,4 @@
 
-const companyLogos = {
-  costar: "./company-logos/costarLogo.png",
-  cognizant: "./company-logos/cognizantLogo.png",
-  epic: "./company-logos/epicLogo.png",
-  blackRocket: "./company-logos/blackRocketLogo.png",
-}
-
 export type Pokemon = {
   id: string,
   name: string,
@@ -159,4 +152,33 @@ export const pokedex : Pokemon[] = [
     { id: '142', name: 'Quaxly', ingredient_1: 'Oran', ingredient_2: 'Soybeans', ingredient_3: 'Leek',  },
     { id: '143', name: 'Quaxwell', ingredient_1: 'Oran', ingredient_2: 'Soybeans', ingredient_3: 'Leek',  },
     { id: '144', name: 'Quaquaval', ingredient_1: 'Cheri', ingredient_2: 'Soybeans', ingredient_3: 'Leek',  },
+]
+
+export type BerryTypes = {
+  index: string,
+  berryName: string,
+  berryImageUri: string,
+  typeName: string,
+  typeImageUri: string,
+}
+
+export const berryTypes : BerryTypes[] = [
+  { index: '1', berryName: "Persim", typeName: "Normal", berryImageUri: "./portraits/001.png", typeImageUri: "./portraits/002.png" },
+  { index: '2', berryName: "Leppa", typeName: "Fire", berryImageUri: "./portraits/001.png", typeImageUri: "./portraits/002.png" },
+  { index: '3', berryName: "Oran", typeName: "Water", berryImageUri: "./portraits/001.png", typeImageUri: "./portraits/002.png" },
+  { index: '4', berryName: "Grepa", typeName: "Electric", berryImageUri: "./portraits/001.png", typeImageUri: "./portraits/002.png" },
+  { index: '5', berryName: "Durin", typeName: "Grass", berryImageUri: "./portraits/001.png", typeImageUri: "./portraits/002.png" },
+  { index: '6', berryName: "Rawst", typeName: "Ice", berryImageUri: "./portraits/001.png", typeImageUri: "./portraits/002.png" },
+  { index: '7', berryName: "Cheri", typeName: "Fighting", berryImageUri: "./portraits/001.png", typeImageUri: "./portraits/002.png" },
+  { index: '8', berryName: "Chesto", typeName: "Poison", berryImageUri: "./portraits/001.png", typeImageUri: "./portraits/002.png" },
+  { index: '9', berryName: "Figy", typeName: "Ground", berryImageUri: "./portraits/001.png", typeImageUri: "./portraits/002.png" },
+  { index: '10', berryName: "Pamtre", typeName: "Flying", berryImageUri: "./portraits/001.png", typeImageUri: "./portraits/002.png" },
+  { index: '11', berryName: "Mago", typeName: "Psychic", berryImageUri: "./portraits/001.png", typeImageUri: "./portraits/002.png" },
+  { index: '12', berryName: "Lum", typeName: "Bug", berryImageUri: "./portraits/001.png", typeImageUri: "./portraits/002.png" },
+  { index: '13', berryName: "Sitrus", typeName: "Rock", berryImageUri: "./portraits/001.png", typeImageUri: "./portraits/002.png" },
+  { index: '14', berryName: "Bluk", typeName: "Ghost", berryImageUri: "./portraits/001.png", typeImageUri: "./portraits/002.png" },
+  { index: '15', berryName: "Yache", typeName: "Dragon", berryImageUri: "./portraits/001.png", typeImageUri: "./portraits/002.png" },
+  { index: '16', berryName: "Wiki", typeName: "Dark", berryImageUri: "./portraits/001.png", typeImageUri: "./portraits/002.png" },
+  { index: '17', berryName: "Belue", typeName: "Steel", berryImageUri: "./portraits/001.png", typeImageUri: "./portraits/002.png" },
+  { index: '18', berryName: "Pecha", typeName: "Fairy", berryImageUri: "./portraits/001.png", typeImageUri: "./portraits/002.png" },
 ]

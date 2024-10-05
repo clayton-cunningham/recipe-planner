@@ -18,7 +18,7 @@ export const PokemonList = () => {
                 <Column>
                     {pokedex.map(mon => {
                         return (
-                            <Row>
+                            <Row key={mon.id + "_Pokemon"}>
                                 <img src={formatIdForPng(mon.id)} />
                                 <p>{mon.name}</p>
                                 <button>
