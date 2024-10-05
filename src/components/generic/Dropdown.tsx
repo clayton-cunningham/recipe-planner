@@ -22,12 +22,12 @@ export const Dropdown = (props: {title: string, contents: any[]}) => {
                 }
             >
                 {title}
+                {visible && (
+                    <Column>
+                        {contents}
+                    </Column>
+                )}
             </button>
-            {visible && (
-                <Column>
-                    {contents}
-                </Column>
-            )}
         </div>
     )
 }
