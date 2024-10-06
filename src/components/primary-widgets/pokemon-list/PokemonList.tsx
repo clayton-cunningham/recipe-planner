@@ -22,7 +22,8 @@ export const PokemonList = (props: {context: AppContext}) => {
                         return (
                             <Row key={mon.id + "_Pokemon"}>
                                 <button onClick={() => togglePokemon(mon)}>{monState?.Perf + ""}</button>
-                                <img src={formatIdForPng(mon.id)} />
+                                <img src={mon.portraitUri} />
+                                {/* <img src={formatIdForPng(mon.id)} /> */}
                                 <p>{mon.name}</p>
                                 <button>
                                     <p>{mon.ingredient_1}</p>

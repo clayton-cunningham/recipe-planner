@@ -49,7 +49,8 @@ export const TypeSelector = (props: {pokemon: Pokemon[], setPokemon: Dispatch<Se
                         <Column>
                             <img
                                 key={p.id + "_berry_mon"} 
-                                src={formatIdForPng(p.id)} 
+                                src={p.portraitUri} 
+                                // src={formatIdForPng(p.id)} 
                                 onClick={() => context.togglePokemon(p)}
                                 className={monState?.Perf ? "can-use" : "cant-use"}
                             />
