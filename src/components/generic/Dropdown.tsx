@@ -2,9 +2,9 @@ import { Column } from "./Column";
 // @ts-ignore
 import React, { useState } from "react";
 
-export const Dropdown = (props: {title: string, contents: any[]}) => {
+export const Dropdown = (props: {menuDisplay: any, contents: any[]}) => {
 
-    const { title, contents } = props;
+    const { menuDisplay, contents } = props;
     const [visible, setVisible] = useState(false);
 
     const dismissHandler = (event: React.FocusEvent<HTMLButtonElement>): void => {
@@ -22,7 +22,7 @@ export const Dropdown = (props: {title: string, contents: any[]}) => {
                     dismissHandler(e)
                 }
             >
-                {title}
+                {menuDisplay}
                 {visible && (
                     <Column>
                         {contents}
