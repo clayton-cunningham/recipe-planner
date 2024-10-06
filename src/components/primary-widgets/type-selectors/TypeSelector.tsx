@@ -3,10 +3,11 @@ import { berryTypes, pokedex, Pokemon } from "../../../assets/resources";
 import { Dropdown } from "../../generic/Dropdown";
 import { Row } from "../../generic/Row";
 import { formatIdForPng } from "../helpers";
+import { AppContext } from "../../../App";
 
-export const TypeSelector = (props: {pokemon: Pokemon[], setPokemon: Dispatch<SetStateAction<Pokemon[]>>}) => {
+export const TypeSelector = (props: {pokemon: Pokemon[], setPokemon: Dispatch<SetStateAction<Pokemon[]>>, context: AppContext}) => {
 
-    const {pokemon, setPokemon} = props;
+    const {pokemon, setPokemon, context} = props;
     const [title, setTitle] = useState("");
 
     useEffect(() => {
@@ -30,7 +31,13 @@ export const TypeSelector = (props: {pokemon: Pokemon[], setPokemon: Dispatch<Se
                 }
             />
             <Row>
-                {pokemon.map(p => <img key={p.id + "_berry_mon"} src={formatIdForPng(p.id)} />)}
+                {pokemon.map(p => 
+                    <img 
+                        key={p.id + "_berry_mon"} 
+                        src={formatIdForPng(p.id)} 
+                        onClick={() => context.togglePokemon(p)}
+                    />
+                )}
             </Row>
         </div>
     )

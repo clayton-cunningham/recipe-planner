@@ -60,10 +60,16 @@ const parseRow = (row, rowNum) => {
         j++;
 
         // When you choose, add a key at the start of the row
-        if (i == 0) rowResult += "key: '" + rowNum +"', ";
+        // if (i == 0) rowResult += "key: '" + rowNum +"', ";
 
-        // Make sure the values maintain format - since this data may go directly to the site
-        rowResult += key + ': "' + cell + '", '
+        if (cell == "TRUE" || cell == "FALSE") {
+            rowResult += key + ': ' + cell.toLowerCase() + ', '
+        }
+        else {
+            // Make sure the string values maintain format - since this data may go directly to the site
+            rowResult += key + ': "' + cell + '", '
+        }
+
     }
 
     rowResult += " },\n"
@@ -108,7 +114,7 @@ const fetchFileData = () => {
             console.log(err)
         }
 
-        finalResult += "export const pokedex : Pokemon[] = [\n"
+        finalResult += "export const pokedex : any[] = [\n"
         parseData(inputData);
         finalResult += "]";
         writeToFile();

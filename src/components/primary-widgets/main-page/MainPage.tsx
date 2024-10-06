@@ -3,16 +3,21 @@ import { PageSection } from "../../generic/PageSection";
 import { RecipeOptions } from "../recipe-options/RecipeOptions";
 import { TypeSelectors } from "../type-selectors/TypeSelectors";
 import { Pokemon } from "../../../assets/resources";
+import { AppContext } from "../../../App";
 
-export const MainPage = () => {
+export const MainPage = (props: {context: AppContext}) => {
 
-    const [totalPokemon, setTotalPokemon] = useState<Pokemon[]>([]);
+    const {context} = props;
+    const [weeklyPokemon, setWeeklyPokemon] = useState<Pokemon[]>([]);
 
     return (
         <div>
             <PageSection>
-                <TypeSelectors setTotalPokemon={setTotalPokemon} />
-                <RecipeOptions pokemon={totalPokemon} />
+                <TypeSelectors 
+                    setWeeklyPokemon={setWeeklyPokemon}
+                    context={context}
+                />
+                <RecipeOptions pokemon={weeklyPokemon.filter(tP => context.ownedPokemon.find(oP => oP.id == tP.id) != undefined)} />
             </PageSection>
         </div>
     )
