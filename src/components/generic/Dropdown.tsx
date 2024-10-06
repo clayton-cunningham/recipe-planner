@@ -14,8 +14,9 @@ export const Dropdown = (props: {title: string, contents: any[]}) => {
     };
 
     return (
-        <div className="dropdown">
+        <div>
             <button 
+                className="dropdown"
                 onClick={() => setVisible(!visible)}
                 onBlur={(e: React.FocusEvent<HTMLButtonElement>): void =>
                     dismissHandler(e)

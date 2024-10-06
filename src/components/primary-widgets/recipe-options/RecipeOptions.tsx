@@ -14,9 +14,9 @@ export const RecipeOptions = (props: {pokemon: Pokemon[]}) => {
         recipes.forEach(recipe => {
             var missingLvl0 = false;
             ingredients.forEach(ingredient => {
-                var iCount = recipe[ingredient as keyof typeof recipe];
+                var iCount = recipe[ingredient.name as keyof typeof recipe];
 
-                if (iCount != "0" && lvl0Ingredients.find(lvl0I => lvl0I == ingredient) == undefined) {
+                if (iCount != "0" && lvl0Ingredients.find(lvl0I => lvl0I == ingredient.name) == undefined) {
                     missingLvl0 = true;
                 }
             })
@@ -30,12 +30,12 @@ export const RecipeOptions = (props: {pokemon: Pokemon[]}) => {
 
     return (
         <div className="recipe-list">
+            <h3>Dishes</h3>
             {lvl0Dishes.map(dish => 
                 <div key={dish.key + "_dish"}>
                     <p>{dish.Dish}</p>
                 </div>
             )}
-            <p>Test</p>
         </div>
     )
 }

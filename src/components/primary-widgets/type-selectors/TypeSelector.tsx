@@ -24,8 +24,8 @@ export const TypeSelector = (props: {pokemon: Pokemon[], setPokemon: Dispatch<Se
                     berryTypes.map(berryType => 
                         <div key={berryType.index + "_berry_type"} onClick={() => setTitle(berryType.berryName)}>
                             <Row>
-                                <p>{berryType.berryName}</p>
-                                <p>{berryType.typeName}</p>
+                                <p className="flex-1">{berryType.berryName}</p>
+                                <p className="flex-1">{berryType.typeName}</p>
                             </Row>
                         </div>
                     )
