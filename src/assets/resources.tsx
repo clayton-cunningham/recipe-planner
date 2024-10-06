@@ -367,22 +367,22 @@ export type Ingredients = {
 }
 
 export const ingredients: Ingredients[] = [
-  {name: "Apple", uri: ""},
-  {name: "Honey"},
-  {name: "Milk"},
-  {name: "Ginger"},
-  {name: "Oil"},
-  {name: "Cacao"},
-  {name: "Egg"},
-  {name: "Soybeans"},
-  {name: "Potato"},
-  {name: "Tomato"},
-  {name: "Mushroom"},
-  {name: "Tail"},
-  {name: "Herb"},
-  {name: "Leek"},
-  {name: "Corn"},
-  {name: "Sausage"},
+  {name: "Apple", uri: "./ingredients/fancyapple.png"},
+  {name: "Honey", uri: "./ingredients/honey.png"},
+  {name: "Milk", uri: "./ingredients/moomoomilk.png"},
+  {name: "Ginger", uri: "./ingredients/warmingginger.png"},
+  {name: "Oil", uri: "./ingredients/pureoil.png"},
+  {name: "Cacao", uri: "./ingredients/soothingcacao.png"},
+  {name: "Egg", uri: "./ingredients/fancyegg.png"},
+  {name: "Soybeans", uri: "./ingredients/greengrasssoybeans.png"},
+  {name: "Potato", uri: "./ingredients/softpotato.png"},
+  {name: "Tomato", uri: "./ingredients/snoozytomato.png"},
+  {name: "Mushroom", uri: "./ingredients/tastymushroom.png"},
+  {name: "Tail", uri: "./ingredients/slowpoketail.png"},
+  {name: "Herb", uri: "./ingredients/fieryherb.png"},
+  {name: "Leek", uri: "./ingredients/largeleek.png"},
+  {name: "Corn", uri: "./ingredients/greengrasscorn.png"},
+  {name: "Sausage", uri: "./ingredients/beansausage.png"},
 ]
 
 export const recipes : Recipe[] = [
