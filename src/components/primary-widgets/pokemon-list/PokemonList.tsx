@@ -20,21 +20,25 @@ export const PokemonList = (props: {context: AppContext}) => {
                         var monState = ownedPokemon.find(oP => oP.id == mon.id)
 
                         return (
-                            <Row key={mon.id + "_Pokemon"}>
-                                <button onClick={() => togglePokemon(mon)}>{monState?.Perf + ""}</button>
-                                <img src={mon.portraitUri} />
-                                {/* <img src={formatIdForPng(mon.id)} /> */}
-                                <p>{mon.name}</p>
-                                <button>
-                                    <p>{mon.ingredient_1}</p>
-                                </button>
-                                <button>
-                                    <p>{mon.ingredient_2}</p>
-                                </button>
-                                <button>
-                                    <p>{mon.ingredient_3}</p>
-                                </button>
-                            </Row>
+                            <div onClick={() => togglePokemon(mon)}>
+                                <Row key={mon.id + "_Pokemon"}>
+                                    <input type="checkbox" checked={monState?.Perf} onChange={() => {}} />
+                                    {/* <input type="checkbox" onChange={() => togglePokemon(mon)} checked={monState?.Perf} /> */}
+                                    {/* <button onClick={() => togglePokemon(mon)}>{monState?.Perf + ""}</button> */}
+                                    <img src={mon.portraitUri} />
+                                    {/* <img src={formatIdForPng(mon.id)} /> */}
+                                    <p>{mon.name}</p>
+                                    <button>
+                                        <p>{mon.ingredient_1}</p>
+                                    </button>
+                                    <button>
+                                        <p>{mon.ingredient_2}</p>
+                                    </button>
+                                    <button>
+                                        <p>{mon.ingredient_3}</p>
+                                    </button>
+                                </Row>
+                            </div>
                         )
                     })}
                 </Column>

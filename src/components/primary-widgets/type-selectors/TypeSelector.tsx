@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import { berryTypes, ingredients, pokedex, Pokemon } from "../../../assets/resources";
+import { berryTypes, ingredients, pokedex, Pokemon, typeDivergentPokedex } from "../../../assets/resources";
 import { Dropdown } from "../../generic/Dropdown";
 import { Row } from "../../generic/Row";
 import { formatIdForPng } from "../helpers";
@@ -14,7 +14,7 @@ export const TypeSelector = (props: {pokemon: Pokemon[], setPokemon: Dispatch<Se
     const [title, setTitle] = useState("");
 
     useEffect(() => {
-        var pokemon = pokedex.filter(p => p.berry == title);
+        var pokemon = pokedex.filter(p => p.berry == title).filter(p => typeDivergentPokedex.find(tDP => tDP == p.name) != undefined);
         setPokemon(pokemon);
     }, [title])
 
@@ -46,13 +46,12 @@ export const TypeSelector = (props: {pokemon: Pokemon[], setPokemon: Dispatch<Se
                 {pokemon.map(p => {
                     var monState = context.ownedPokemon.find(oP => oP.id == p.id);
                     return (
-                        <Column>
+                        <Column className={monState?.Perf ? "can-use" : "cant-use"}>
                             <img
                                 key={p.id + "_berry_mon"} 
                                 src={p.portraitUri} 
                                 // src={formatIdForPng(p.id)} 
                                 onClick={() => context.togglePokemon(p)}
-                                className={monState?.Perf ? "can-use" : "cant-use"}
                             />
                             <Row>
                                 <img 
