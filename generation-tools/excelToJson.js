@@ -11,6 +11,7 @@ const parseKeys = (row) => {
 
     var cells = row.split(",");
     const cellCount = cells.length;
+    keys = [cells.length];
 
     for (let i = 0; i < cellCount; i++) {
         var key = cells[i];
@@ -33,7 +34,7 @@ const parseKeys = (row) => {
 }
 
 // Get data for each row, and assign it to the corresponding header key
-const parseRow = (row) => {
+const parseRow = (row, rowNum) => {
     if (row == "") return;
 
     let rowResult = "";
@@ -55,10 +56,14 @@ const parseRow = (row) => {
 
         let cell = cells[i];
         let key = keys[j];
+        if (cell == '') cell = 0;
         j++;
 
+        // When you choose, add a key at the start of the row
+        if (i == 0) rowResult += "key: '" + rowNum +"', ";
+
         // Make sure the values maintain format - since this data may go directly to the site
-        rowResult += key + ": '" + cell + "', "
+        rowResult += key + ': "' + cell + '", '
     }
 
     rowResult += " },\n"
@@ -69,15 +74,17 @@ const parseData = (inputData) => {
     var rows = inputData.split(/\r?\n/);
 
     let keysObtained = false;
+    let rowNum = 0;
     rows.forEach(row => {
 
         if (!keysObtained) {
             // If we did not pass in keys, parse the file for them.  Otherwise, skip this header row
-            if (keys.length == 0) parseKeys(row)
+            if (keys == undefined || keys.length == 0) parseKeys(row)
             keysObtained = true;
         }
         else {
-            parseRow(row);
+            parseRow(row, rowNum);
+            rowNum++;
         }
     });
 }

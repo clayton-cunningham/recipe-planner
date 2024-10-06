@@ -2,15 +2,11 @@ import { pokedex } from "../../../assets/resources";
 import { Column } from "../../generic/Column";
 import { Row } from "../../generic/Row";
 import { PageSection } from "../../generic/PageSection";
+import { formatIdForPng } from "../helpers.tsx";
 // @ts-ignore
 import "./PokemonList.less"
 
 export const PokemonList = () => {
-
-    const formatIdForPng = (id: string) => {
-        while (id.length < 3) id = "0" + id;
-        return "portraits/" + id + ".png";
-    }
 
     return (
         <div className="pokemon-list">
