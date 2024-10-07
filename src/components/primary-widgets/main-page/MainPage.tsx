@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { PageSection } from "../../generic/PageSection";
 import { Recipes } from "../recipe-options/Recipes";
-import { DishSelector } from "../type-selectors/DishSelector";
+import { RecipeSelector } from "../type-selectors/RecipeSelector";
 import { TypeSelectors } from "../type-selectors/TypeSelectors";
 import { Pokemon } from "../../../assets/resources";
 import { AppContext } from "../../../App";
@@ -10,19 +10,19 @@ export const MainPage = (props: {context: AppContext}) => {
 
     const {context} = props;
     const [weeklyPokemon, setWeeklyPokemon] = useState<Pokemon[]>([]);
-    const [weeklyDish, setWeeklyDish] = useState<string>("");
+    const [weeklyRecipe, setWeeklyRecipe] = useState<string>("");
 
     return (
         <div>
             <PageSection>
-                <DishSelector setWeeklyDish={setWeeklyDish} />
+                <RecipeSelector setWeeklyRecipe={setWeeklyRecipe} />
                 <TypeSelectors 
                     setWeeklyPokemon={setWeeklyPokemon}
                     context={context}
                 />
                 <Recipes 
                     pokemon={weeklyPokemon.filter(tP => context.ownedPokemon.find(oP => oP.id == tP.id && oP.Perf) != undefined)}
-                    weeklyDish={weeklyDish}
+                    weeklyRecipe={weeklyRecipe}
                 />
             </PageSection>
         </div>

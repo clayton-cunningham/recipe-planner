@@ -1,28 +1,28 @@
 import { useEffect, useState } from "react";
 import { ingredients, Pokemon, Recipe, recipes } from "../../../assets/resources";
-import "./RecipeOptions.less";
+import "./Recipes.less";
 import { Row } from "../../generic/Row";
 import { Column } from "../../generic/Column";
 import { RecipeOptions } from "./RecipeOptions"
 
-export const Recipes = (props: {pokemon: Pokemon[], weeklyDish: string}) => {
+export const Recipes = (props: {pokemon: Pokemon[], weeklyRecipe: string}) => {
 
-    const {pokemon, weeklyDish} = props;
-    const [lvl0Dishes, setLvl0Dishes] = useState<Recipe[]>([]);
-    const [lvl30Dishes, setLvl30Dishes] = useState<Recipe[]>([]);
-    const [lvl60Dishes, setLvl60Dishes] = useState<Recipe[]>([]);
-    const [impossibleDishes, setImpossibleDishes] = useState<Recipe[]>([]);
+    const {pokemon, weeklyRecipe} = props;
+    const [lvl0Recipes, setLvl0Recipes] = useState<Recipe[]>([]);
+    const [lvl30Recipes, setLvl30Recipes] = useState<Recipe[]>([]);
+    const [lvl60Recipes, setLvl60Recipes] = useState<Recipe[]>([]);
+    const [impossibleRecipes, setImpossibleRecipes] = useState<Recipe[]>([]);
 
     useEffect(() => {
         var lvl0Ingredients = pokemon.map(p => p.ingredient_1);
         var lvl30Ingredients = pokemon.map(p => p.ingredient_2);
         var lvl60Ingredients = pokemon.map(p => p.ingredient_3);
-        var lvl0Dishes: Recipe[] = [];
-        var lvl30Dishes: Recipe[] = [];
-        var lvl60Dishes: Recipe[] = [];
-        var impossibleDishes: Recipe[] = [];
+        var lvl0Recipes: Recipe[] = [];
+        var lvl30Recipes: Recipe[] = [];
+        var lvl60Recipes: Recipe[] = [];
+        var impossibleRecipes: Recipe[] = [];
 
-        recipes.filter(r => r.Type == weeklyDish).forEach(recipe => {
+        recipes.filter(r => r.Type == weeklyRecipe).forEach(recipe => {
             var missingLvl0 = false;
             var missingLvl30 = false;
             var missingLvl60 = false;
@@ -44,22 +44,22 @@ export const Recipes = (props: {pokemon: Pokemon[], weeklyDish: string}) => {
             })
 
             if (!missingLvl0) {
-                lvl0Dishes.push(recipe);
+                lvl0Recipes.push(recipe);
             }
             else if (!missingLvl30) {
-                lvl30Dishes.push(recipe);
+                lvl30Recipes.push(recipe);
             }
             else if (!missingLvl60) {
-                lvl60Dishes.push(recipe);
+                lvl60Recipes.push(recipe);
             }
             else {
-                impossibleDishes.push(recipe);
+                impossibleRecipes.push(recipe);
             }
         })
-        setLvl0Dishes(lvl0Dishes);
-        setLvl30Dishes(lvl30Dishes);
-        setLvl60Dishes(lvl60Dishes);
-        setImpossibleDishes(impossibleDishes);
+        setLvl0Recipes(lvl0Recipes);
+        setLvl30Recipes(lvl30Recipes);
+        setLvl60Recipes(lvl60Recipes);
+        setImpossibleRecipes(impossibleRecipes);
     }, [pokemon])
 
     // const getIngredients = (recipe: Recipe) => {
@@ -83,12 +83,12 @@ export const Recipes = (props: {pokemon: Pokemon[], weeklyDish: string}) => {
 
     return (
         <div>
-            <RecipeOptions title="Level 0 Dishes" dishes={lvl0Dishes} titleIngredients={pokemon.map(p => p.ingredient_1)} />
-            <RecipeOptions title="Level 30 Dishes" dishes={lvl30Dishes} titleIngredients={pokemon.map(p => p.ingredient_2)} />
-            <RecipeOptions title="Level 60 Dishes" dishes={lvl60Dishes} titleIngredients={pokemon.map(p => p.ingredient_3)} />
+            <RecipeOptions title="Level 0 Recipes" recipes={lvl0Recipes} titleIngredients={pokemon.map(p => p.ingredient_1)} />
+            <RecipeOptions title="Level 30 Recipes" recipes={lvl30Recipes} titleIngredients={pokemon.map(p => p.ingredient_2)} />
+            <RecipeOptions title="Level 60 Recipes" recipes={lvl60Recipes} titleIngredients={pokemon.map(p => p.ingredient_3)} />
             <RecipeOptions 
-                title="Impossible Dishes" 
-                dishes={impossibleDishes} 
+                title="Impossible Recipes" 
+                recipes={impossibleRecipes} 
                 titleIngredients={ingredients.map(i => i.name)
                     .filter(i => 
                         !pokemon.map(p => p.ingredient_1).includes(i) &&
@@ -97,7 +97,7 @@ export const Recipes = (props: {pokemon: Pokemon[], weeklyDish: string}) => {
                     )} />
         </div>
         // <div className="recipe-list">
-        //     <h3>Level 0 Dishes</h3>
+        //     <h3>Level 0 Recipes</h3>
         //     <Row>
         //         {ingredients.filter(i => pokemon.map(p => p.ingredient_1).find(pI => pI == i.name)).map(i =>
         //             <img className="img-m" src={i.uri} />
@@ -105,22 +105,22 @@ export const Recipes = (props: {pokemon: Pokemon[], weeklyDish: string}) => {
         //     </Row>
         //     <Row>
         //         <Column>
-        //             {lvl0Dishes.map(dish => 
-        //                 <Row key={dish.key + "_dish"} className="recipe-entry">
+        //             {lvl0Recipes.map(recipe => 
+        //                 <Row key={recipe.key + "_recipe"} className="recipe-entry">
         //                     <div className="flex-1">
-        //                         <img src={"./dishes/" + dish.Dish.toLowerCase().split(" ").join("") + ".png"} />
+        //                         <img src={"./recipes/" + recipe.Recipe.toLowerCase().split(" ").join("") + ".png"} />
         //                     </div>
-        //                     <p className="flex-2">{dish.Dish}</p>
+        //                     <p className="flex-2">{recipe.Recipe}</p>
         //                     <Row className="flex-2 ingredient-list">
-        //                         {getIngredients(dish)}
+        //                         {getIngredients(recipe)}
         //                     </Row>
         //                 </Row>
         //             )}
         //         </Column>
         //         {/* <Column>
-        //             {lvl0Dishes.map(dish => 
-        //                 <Row key={dish.key + "_dish"}>
-        //                     {getIngredients(dish)}
+        //             {lvl0Recipes.map(recipe => 
+        //                 <Row key={recipe.key + "_recipe"}>
+        //                     {getIngredients(recipe)}
         //                 </Row>
         //             )}
         //         </Column> */}

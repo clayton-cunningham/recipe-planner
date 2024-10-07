@@ -1,11 +1,11 @@
 import { ingredients, Recipe } from "../../../assets/resources";
-import "./RecipeOptions.less";
+import "./Recipes.less";
 import { Row } from "../../generic/Row";
 import { Column } from "../../generic/Column";
 
-export const RecipeOptions = (props: {dishes: Recipe[], title: string, titleIngredients: string[]}) => {
+export const RecipeOptions = (props: {recipes: Recipe[], title: string, titleIngredients: string[]}) => {
 
-    const {title, dishes, titleIngredients} = props;
+    const {title, recipes, titleIngredients} = props;
 
 
     const getIngredients = (recipe: Recipe) => {
@@ -37,24 +37,24 @@ export const RecipeOptions = (props: {dishes: Recipe[], title: string, titleIngr
             </Row>
             <Row> 
                 <Column>
-                    {dishes.map(dish => 
-                        <Row key={dish.key + "_dish"} className="recipe-entry">
+                    {recipes.map(recipe => 
+                        <Row key={recipe.key + "_recipe"} className="recipe-entry">
                             <div className="flex-1">
-                                <img src={"./dishes/" + dish.Dish.toLowerCase().split(" ").join("") + ".png"} />
+                                <img src={"./recipes/" + recipe.Recipe.toLowerCase().split(" ").join("") + ".png"} />
                             </div>
-                            <p className="flex-2">{dish.Dish}</p>
+                            <p className="flex-2">{recipe.Recipe}</p>
                             <Row className="flex-2 ingredient-list">
-                                {getIngredients(dish)}
+                                {getIngredients(recipe)}
                             </Row>
                         </Row>
                     )}
                 </Column>
                 {/* <Column>
-                    {lvl0Dishes.map(dish => 
-                        <Row key={dish.key + "_dish"}>
-                            {getIngredients(dish)}
+                    {lvl0Recipes.map(recipe => 
+                        <Row key={recipe.key + "_recipe"}>
+                            {getIngredients(recipe)}
                         </Row>
-                    )}
+                    )} 
                 </Column> */}
             </Row>
         </div>
