@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { PageSection } from "../../generic/PageSection";
-import { RecipeOptions } from "../recipe-options/RecipeOptions";
+import { Recipes } from "../recipe-options/Recipes";
 import { DishSelector } from "../type-selectors/DishSelector";
 import { TypeSelectors } from "../type-selectors/TypeSelectors";
 import { Pokemon } from "../../../assets/resources";
@@ -20,7 +20,7 @@ export const MainPage = (props: {context: AppContext}) => {
                     setWeeklyPokemon={setWeeklyPokemon}
                     context={context}
                 />
-                <RecipeOptions 
+                <Recipes 
                     pokemon={weeklyPokemon.filter(tP => context.ownedPokemon.find(oP => oP.id == tP.id && oP.Perf) != undefined)}
                     weeklyDish={weeklyDish}
                 />

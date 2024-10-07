@@ -7,7 +7,7 @@ export const DishSelector = (props: {setWeeklyDish: Dispatch<SetStateAction<stri
 
     const {setWeeklyDish} = props;
     const [titleImg, setTitleImg] = useState("");
-    const [title, setTitle] = useState("");
+    const [title, setTitle] = useState("Select a Dish Type");
 
     useEffect(() => {
         setWeeklyDish(title);

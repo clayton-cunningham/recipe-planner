@@ -11,7 +11,7 @@ export const TypeSelector = (props: {pokemon: Pokemon[], setPokemon: Dispatch<Se
 
     const {pokemon, setPokemon, context} = props;
     const [titleImg, setTitleImg] = useState("");
-    const [title, setTitle] = useState("");
+    const [title, setTitle] = useState("Select a Berry");
 
     useEffect(() => {
         var pokemon = pokedex.filter(p => p.berry == title).filter(p => typeDivergentPokedex.find(tDP => tDP == p.name) != undefined);
