@@ -20,8 +20,8 @@ export const PokemonList = (props: {context: AppContext}) => {
                         var monState = ownedPokemon.find(oP => oP.id == mon.id)
 
                         return (
-                            <div onClick={() => togglePokemon(mon)}>
-                                <Row key={mon.id + "_Pokemon"}>
+                            <div key={mon.id + "_Pokemon"} onClick={() => togglePokemon(mon)}>
+                                <Row>
                                     <input type="checkbox" checked={monState?.Perf} onChange={() => {}} />
                                     {/* <input type="checkbox" onChange={() => togglePokemon(mon)} checked={monState?.Perf} /> */}
                                     {/* <button onClick={() => togglePokemon(mon)}>{monState?.Perf + ""}</button> */}

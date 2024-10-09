@@ -4,7 +4,7 @@ import { Dropdown } from "../../generic/Dropdown";
 import { Row } from "../../generic/Row";
 import { formatIdForPng } from "../helpers";
 import { AppContext } from "../../../App";
-import "./TypeSelector.less"
+import "./Selectors.less"
 import { Column } from "../../generic/Column";
 
 export const TypeSelector = (props: {pokemon: Pokemon[], setPokemon: Dispatch<SetStateAction<Pokemon[]>>, context: AppContext}) => {
@@ -46,27 +46,30 @@ export const TypeSelector = (props: {pokemon: Pokemon[], setPokemon: Dispatch<Se
                 {pokemon.map(p => {
                     var monState = context.ownedPokemon.find(oP => oP.id == p.id);
                     return (
-                        <Column className={monState?.Perf ? "can-use" : "cant-use"}>
-                            <img
-                                key={p.id + "_berry_mon"} 
-                                src={p.portraitUri} 
-                                // src={formatIdForPng(p.id)} 
-                                onClick={() => context.togglePokemon(p)}
-                            />
-                            <Row>
-                                <img 
-                                    src={ingredients.find(i => i.name == p.ingredient_1)?.uri}
-                                    className="img-s"
+                        <Column
+                            key={p.id + "_berry_mon"} 
+                            className={monState?.Perf ? "can-use" : "cant-use"}
+                        >
+                            <div onClick={() => context.togglePokemon(p)}>
+                                <img
+                                    src={p.portraitUri} 
+                                    // src={formatIdForPng(p.id)} 
                                 />
-                                <img 
-                                    src={ingredients.find(i => i.name == p.ingredient_2)?.uri}
-                                    className="img-s"
-                                />
-                                <img 
-                                    src={ingredients.find(i => i.name == p.ingredient_3)?.uri}
-                                    className="img-s"
-                                />
-                            </Row>
+                                <Row>
+                                    <img 
+                                        src={ingredients.find(i => i.name == p.ingredient_1)?.uri}
+                                        className="img-s"
+                                    />
+                                    <img 
+                                        src={ingredients.find(i => i.name == p.ingredient_2)?.uri}
+                                        className="img-s"
+                                    />
+                                    <img 
+                                        src={ingredients.find(i => i.name == p.ingredient_3)?.uri}
+                                        className="img-s"
+                                    />
+                                </Row>
+                            </div>
                         </Column>
                     )
                 })}

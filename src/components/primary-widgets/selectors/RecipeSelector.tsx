@@ -1,8 +1,6 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { Dropdown } from "../../generic/Dropdown";
 import { Row } from "../../generic/Row";
-import "./TypeSelector.less"
-import React from "react";
 
 export const RecipeSelector = (props: {setWeeklyRecipe: Dispatch<SetStateAction<string>>}) => {
 
@@ -27,19 +25,19 @@ export const RecipeSelector = (props: {setWeeklyRecipe: Dispatch<SetStateAction<
                 }
                 contents={
                     [
-                        <div onClick={() => {setTitleImg(""); setTitle("Curry");}}>
+                        <div key={"curry-selector"} onClick={() => {setTitleImg(""); setTitle("Curry");}}>
                             <Row>
                                 <p className="flex-1">Curry</p>
                                 {/* <img className="img-s" src={} /> */}
                             </Row>
                         </div>,
-                        <div onClick={() => {setTitleImg(""); setTitle("Salad");}}>
+                        <div key={"salad-selector"} onClick={() => {setTitleImg(""); setTitle("Salad");}}>
                             <Row>
                                 <p className="flex-1">Salad</p>
                                 {/* <img className="img-s" src={} /> */}
                             </Row>
                         </div>,
-                        <div onClick={() => {setTitleImg(""); setTitle("Dessert");}}>
+                        <div key={"dessert-selector"} onClick={() => {setTitleImg(""); setTitle("Dessert");}}>
                             <Row>
                                 <p className="flex-1">Dessert</p>
                                 {/* <img className="img-s" src={} /> */}

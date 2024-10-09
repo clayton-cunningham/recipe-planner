@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import { ingredients, Pokemon, Recipe, recipes } from "../../../assets/resources";
 import "./Recipes.less";
-import { Row } from "../../generic/Row";
-import { Column } from "../../generic/Column";
 import { RecipeOptions } from "./RecipeOptions"
 
 export const Recipes = (props: {pokemon: Pokemon[], weeklyRecipe: string}) => {
@@ -30,7 +28,6 @@ export const Recipes = (props: {pokemon: Pokemon[], weeklyRecipe: string}) => {
                 var iCount = recipe[ingredient.name as keyof typeof recipe];
 
                 if (iCount != undefined){
-                    // TODO: we likely can make this faster
                     if (iCount != "0" && lvl0Ingredients.find(i => i == ingredient.name) == undefined) {
                         missingLvl0 = true;
                         if (iCount != "0" && lvl30Ingredients.find(i => i == ingredient.name) == undefined) {
@@ -62,25 +59,6 @@ export const Recipes = (props: {pokemon: Pokemon[], weeklyRecipe: string}) => {
         setImpossibleRecipes(impossibleRecipes);
     }, [pokemon])
 
-    // const getIngredients = (recipe: Recipe) => {
-
-    //     var currIngredients: any[] = [];
-    //     ingredients.forEach(ingredient => {
-    //         var iCount = recipe[ingredient.name as keyof typeof recipe];
-
-    //         if (iCount != "0") {
-    //             currIngredients.push(
-    //                 <Row>
-    //                     <p>{iCount}</p>
-    //                     <img className="img-m" src={ingredient.uri} />
-    //                 </Row>
-    //             );
-    //         }
-    //     })
-
-    //     return currIngredients;
-    // }
-
     return (
         <div>
             <RecipeOptions title="Level 0 Recipes" recipes={lvl0Recipes} titleIngredients={pokemon.map(p => p.ingredient_1)} />
@@ -94,37 +72,8 @@ export const Recipes = (props: {pokemon: Pokemon[], weeklyRecipe: string}) => {
                         !pokemon.map(p => p.ingredient_1).includes(i) &&
                         !pokemon.map(p => p.ingredient_2).includes(i) &&
                         !pokemon.map(p => p.ingredient_3).includes(i)
-                    )} />
+                    )} 
+            />
         </div>
-        // <div className="recipe-list">
-        //     <h3>Level 0 Recipes</h3>
-        //     <Row>
-        //         {ingredients.filter(i => pokemon.map(p => p.ingredient_1).find(pI => pI == i.name)).map(i =>
-        //             <img className="img-m" src={i.uri} />
-        //         )}
-        //     </Row>
-        //     <Row>
-        //         <Column>
-        //             {lvl0Recipes.map(recipe => 
-        //                 <Row key={recipe.key + "_recipe"} className="recipe-entry">
-        //                     <div className="flex-1">
-        //                         <img src={"./recipes/" + recipe.Recipe.toLowerCase().split(" ").join("") + ".png"} />
-        //                     </div>
-        //                     <p className="flex-2">{recipe.Recipe}</p>
-        //                     <Row className="flex-2 ingredient-list">
-        //                         {getIngredients(recipe)}
-        //                     </Row>
-        //                 </Row>
-        //             )}
-        //         </Column>
-        //         {/* <Column>
-        //             {lvl0Recipes.map(recipe => 
-        //                 <Row key={recipe.key + "_recipe"}>
-        //                     {getIngredients(recipe)}
-        //                 </Row>
-        //             )}
-        //         </Column> */}
-        //     </Row>
-        // </div>
     )
 }

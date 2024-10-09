@@ -16,8 +16,8 @@ export const RecipeOptions = (props: {recipes: Recipe[], title: string, titleIng
 
             if (iCount != undefined && iCount != "0") {
                 currIngredients.push(
-                    <Row>
-                        <p>{iCount}</p>
+                    <Row key={ingredient.name + "_ingredient-count"}>
+                        <p className="ingredient-count">{iCount}</p>
                         <img className="img-m" src={ingredient.uri} />
                     </Row>
                 );
@@ -32,31 +32,39 @@ export const RecipeOptions = (props: {recipes: Recipe[], title: string, titleIng
             <h3>{title}</h3>
             <Row>
                 {ingredients.filter(i => titleIngredients.find(pI => pI == i.name)).map(i =>
-                    <img className="img-m" src={i.uri} />
+                    <img key={i.name + "_ingredient-obtainable"} className="img-m" src={i.uri} />
                 )}
             </Row>
-            <Row> 
-                <Column>
-                    {recipes.map(recipe => 
-                        <Row key={recipe.key + "_recipe"} className="recipe-entry">
-                            <div className="flex-1">
-                                <img src={"./recipes/" + recipe.Recipe.toLowerCase().split(" ").join("") + ".png"} />
-                            </div>
-                            <p className="flex-2">{recipe.Recipe}</p>
-                            <Row className="flex-2 ingredient-list">
-                                {getIngredients(recipe)}
-                            </Row>
-                        </Row>
-                    )}
-                </Column>
-                {/* <Column>
-                    {lvl0Recipes.map(recipe => 
-                        <Row key={recipe.key + "_recipe"}>
+            <Column>
+                {recipes.map(recipe => 
+                    <Row key={recipe.key + "_recipe-entry"} className={"recipe-entry"}>
+                        <div>
+                            <img src={"./recipes/" + recipe.Recipe.toLowerCase().split(" ").join("") + ".png"} />
+                        </div>
+                        <p className="recipe-name">{recipe.Recipe}</p>
+                        <Row className="ingredient-list">
                             {getIngredients(recipe)}
                         </Row>
-                    )} 
-                </Column> */}
-            </Row>
+                    </Row>
+                )}
+            </Column>
+            {/* {recipes.length > 0 &&
+                (<Grid
+                    cells={[
+                        ...recipes.map(recipe => 
+                            [
+                                <div>
+                                    <img src={"./recipes/" + recipe.Recipe.toLowerCase().split(" ").join("") + ".png"} />
+                                </div>,
+                                <p className="recipe-name">{recipe.Recipe}</p>,
+                                <Row className="ingredient-list">
+                                    {getIngredients(recipe)}
+                                </Row>,
+                            ]
+                        ).reduce((acc, curr) => acc.concat(curr))
+                    ]}
+                />)
+            } */}
         </div>
     )
 }
