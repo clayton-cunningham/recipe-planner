@@ -547,7 +547,14 @@ export const recipes : Recipe[] = [
   { key: '61', Type: "Dessert", Recipe: "Zing Zap Spiced Cola", Apple: "35", Honey: "0", Milk: "0", Ginger: "20", Oil: "0", Cacao: "0", Egg: "0", Soybeans: "0", Potato: "0", Tomato: "0", Mushroom: "0", Tail: "0", Herb: "0", Leek: "20", Corn: "0", Sausage: "0", Coffee: "12", Total_ingredients: "?",  },
 ]
 
-export const typeGroups : any[] = [
+export type TypeGroup = {
+  key: string,
+  pokemon: string[],
+  default: string,
+  berry: string,
+}
+
+export const typeGroups : TypeGroup[] = [
   { key: "Bulbasaur_Durin", pokemon: [ "Bulbasaur", "Ivysaur", "Venusaur",  ], default: "Venusaur", berry: "Durin",  },
   { key: "Charmander_Leppa", pokemon: [ "Charmander", "Charmeleon", "Charizard",  ], default: "Charizard", berry: "Leppa",  },
   { key: "Squirtle_Oran", pokemon: [ "Squirtle", "Wartortle", "Blastoise",  ], default: "Blastoise", berry: "Oran",  },
