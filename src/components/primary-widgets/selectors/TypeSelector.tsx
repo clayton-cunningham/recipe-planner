@@ -54,7 +54,7 @@ export const TypeSelector = (props: {pokemon: Pokemon[], setPokemon: Dispatch<Se
                     return (
                         <Column
                             key={tG.key + "_berry_mon"} 
-                            className={monState?.Perf ? "can-use" : "cant-use"}
+                            className={"pokemon-selector " + (monState?.Perf ? "can-use" : "cant-use")}
                         >
                             <div onClick={() => context.togglePokemon(dexEntry)}>
                                 <div className="main-icon">
