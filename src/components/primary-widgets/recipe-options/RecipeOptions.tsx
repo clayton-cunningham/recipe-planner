@@ -1,7 +1,6 @@
 import { ingredients, Recipe } from "../../../assets/resources";
 import "./Recipes.less";
 import { Row } from "../../generic/Row";
-import { Column } from "../../generic/Column";
 
 export const RecipeOptions = (props: {recipes: Recipe[], title: string, titleIngredients: string[]}) => {
 
@@ -18,7 +17,7 @@ export const RecipeOptions = (props: {recipes: Recipe[], title: string, titleIng
                 currIngredients.push(
                     <Row key={ingredient.name + "_ingredient-count"}>
                         <p className="ingredient-count">{iCount}</p>
-                        <img className="img-m" src={ingredient.uri} />
+                        <img className="img-xs" src={ingredient.uri} />
                     </Row>
                 );
             }
@@ -32,22 +31,24 @@ export const RecipeOptions = (props: {recipes: Recipe[], title: string, titleIng
             <h3>{title}</h3>
             <Row>
                 {ingredients.filter(i => titleIngredients.find(pI => pI == i.name)).map(i =>
-                    <img key={i.name + "_ingredient-obtainable"} className="img-m" src={i.uri} />
+                    <img key={i.name + "_ingredient-obtainable"} className="img-s" src={i.uri} />
                 )}
             </Row>
-            <Column>
+            <Row className="recipe-entries">
                 {recipes.map(recipe => 
                     <Row key={recipe.key + "_recipe-entry"} className={"recipe-entry"}>
-                        <div>
-                            <img src={"./recipes/" + recipe.Recipe.toLowerCase().split(" ").join("") + ".png"} />
-                        </div>
+                        <Row>
+                            <div>
+                                <img className="img-m" src={"./recipes/" + recipe.Recipe.toLowerCase().split(" ").join("") + ".png"} />
+                            </div>
+                        </Row>
                         <p className="recipe-name">{recipe.Recipe}</p>
-                        <Row className="ingredient-list">
+                        <Row className="recipe-ingredient-list">
                             {getIngredients(recipe)}
                         </Row>
                     </Row>
                 )}
-            </Column>
+            </Row>
             {/* {recipes.length > 0 &&
                 (<Grid
                     cells={[

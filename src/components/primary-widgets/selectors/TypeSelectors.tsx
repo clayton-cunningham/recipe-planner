@@ -2,6 +2,7 @@ import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { TypeSelector } from "./TypeSelector";
 import { Pokemon } from "../../../assets/resources";
 import { AppContext } from "../../../App";
+import { Row } from "../../generic/Row";
 
 export const TypeSelectors = (props: {setWeeklyPokemon: Dispatch<SetStateAction<Pokemon[]>>, context: AppContext}) => {
 
@@ -15,10 +16,10 @@ export const TypeSelectors = (props: {setWeeklyPokemon: Dispatch<SetStateAction<
     }, [pokemon1, pokemon2, pokemon3])
 
     return (
-        <div>
+        <Row className="type-selectors">
             <TypeSelector pokemon={pokemon1} setPokemon={setPokemon1} context={context} />
             <TypeSelector pokemon={pokemon2} setPokemon={setPokemon2} context={context} />
             <TypeSelector pokemon={pokemon3} setPokemon={setPokemon3} context={context} />
-        </div>
+        </Row>
     )
 }

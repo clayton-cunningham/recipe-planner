@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { ingredients, Pokemon, Recipe, recipes } from "../../../assets/resources";
 import "./Recipes.less";
 import { RecipeOptions } from "./RecipeOptions"
+import { Row } from "../../generic/Row";
 
 export const Recipes = (props: {pokemon: Pokemon[], weeklyRecipe: string}) => {
 
@@ -60,12 +61,12 @@ export const Recipes = (props: {pokemon: Pokemon[], weeklyRecipe: string}) => {
     }, [pokemon])
 
     return (
-        <div>
+        <Row className="recipes-section">
             <RecipeOptions title="Level 0 Recipes" recipes={lvl0Recipes} titleIngredients={pokemon.map(p => p.ingredient_1)} />
             <RecipeOptions title="Level 30 Recipes" recipes={lvl30Recipes} titleIngredients={pokemon.map(p => p.ingredient_2)} />
             <RecipeOptions title="Level 60 Recipes" recipes={lvl60Recipes} titleIngredients={pokemon.map(p => p.ingredient_3)} />
             <RecipeOptions 
-                title="Impossible Recipes" 
+                title="Impossible Recipes"
                 recipes={impossibleRecipes} 
                 titleIngredients={ingredients.map(i => i.name)
                     .filter(i => 
@@ -74,6 +75,6 @@ export const Recipes = (props: {pokemon: Pokemon[], weeklyRecipe: string}) => {
                         !pokemon.map(p => p.ingredient_3).includes(i)
                     )} 
             />
-        </div>
+        </Row>
     )
 }

@@ -22,12 +22,12 @@ export const TypeSelector = (props: {pokemon: Pokemon[], setPokemon: Dispatch<Se
     }, [title])
 
     return (
-        <div>
+        <Row className="type-selector">
             <Dropdown
                 menuDisplay={
                     <Row>
                         {titleImg &&
-                            <img className="img-s" src={titleImg} />
+                            <img className="img-xs" src={titleImg} />
                         }
                         <p>{title}</p>
                     </Row>
@@ -36,10 +36,10 @@ export const TypeSelector = (props: {pokemon: Pokemon[], setPokemon: Dispatch<Se
                     berryTypes.map(berryType => 
                         <div key={berryType.index + "_berry_type"} onClick={() => {setTitleImg(berryType.berryImageUri); setTitle(berryType.berryName);}}>
                             <Row>
-                                <img className="img-s" src={berryType.berryImageUri} />
+                                <img className="img-xs" src={berryType.berryImageUri} />
                                 <p className="flex-1">{berryType.berryName}</p>
                                 <p className="flex-1">{berryType.typeName}</p>
-                                <img className="img-s" src={berryType.typeImageUri} />
+                                <img className="img-xs" src={berryType.typeImageUri} />
                             </Row>
                         </div>
                     )
@@ -56,43 +56,46 @@ export const TypeSelector = (props: {pokemon: Pokemon[], setPokemon: Dispatch<Se
                             key={tG.key + "_berry_mon"} 
                             className={monState?.Perf ? "can-use" : "cant-use"}
                         >
-                            <div className="main-icon" onClick={() => context.togglePokemon(dexEntry)}>
-                                <img
-                                    src={dexEntry.portraitUri} 
-                                    // src={formatIdForPng(p.id)} 
-                                />
+                            <div onClick={() => context.togglePokemon(dexEntry)}>
+                                <div className="main-icon">
+                                    <img
+                                        src={dexEntry.portraitUri} 
+                                        // src={formatIdForPng(p.id)} 
+                                        className="img-m"
+                                    />
+                                    <Row className="sub-icon-group">
+                                        {tG.pokemon.filter(subP => subP != dexEntry.name).map(subP => {
+                                            var subDexEntry = pokedex.find(p => p.name == subP)!;
+                                            if (subDexEntry == undefined) return null;
+
+                                            return (
+                                                <img
+                                                    className="img-xs"
+                                                    src={subDexEntry.portraitUri}
+                                                />
+                                            )
+                                        })}
+                                    </Row>
+                                </div>
                                 <Row>
                                     <img 
                                         src={ingredients.find(i => i.name == dexEntry.ingredient_1)?.uri}
-                                        className="img-s"
+                                        className="img-xs"
                                     />
                                     <img 
                                         src={ingredients.find(i => i.name == dexEntry.ingredient_2)?.uri}
-                                        className="img-s"
+                                        className="img-xs"
                                     />
                                     <img 
                                         src={ingredients.find(i => i.name == dexEntry.ingredient_3)?.uri}
-                                        className="img-s"
+                                        className="img-xs"
                                     />
-                                </Row>
-                                <Row className="sub-icon-row">
-                                    {tG.pokemon.filter(subP => subP != dexEntry.name).map(subP => {
-                                        var subDexEntry = pokedex.find(p => p.name == subP)!;
-                                        if (subDexEntry == undefined) return null;
-
-                                        return (
-                                            <img
-                                                className="img-s"
-                                                src={subDexEntry.portraitUri}
-                                            />
-                                        )
-                                    })}
                                 </Row>
                             </div>
                         </Column>
                     )
                 })}
             </Row>
-        </div>
+        </Row>
     )
 }

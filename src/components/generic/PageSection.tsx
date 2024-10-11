@@ -7,10 +7,8 @@ export const PageSection = (props: any) => {
     const classNameSuffix = props.className ? " " + props.className : "";
 
     return (
-        <div className={"section" + classNameSuffix}>
-            <Column>
-                {children}
-            </Column>
-        </div>
+        <Column className={"section" + classNameSuffix}>
+            {children}
+        </Column>
     )
 }

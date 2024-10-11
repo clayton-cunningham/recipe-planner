@@ -1,20 +1,42 @@
 
+.recipes-section {
+    width: 100%;
+    align-items: flex-start;
+}
+
 .recipe-list {
-    background-color: aliceblue;
-    // min-width: 800px;
+    background-color: lightgray;
+    width: 25%;
+}
+
+.recipe-entries {
+    max-width: 90vw;
 }
 
 .recipe-entry {
-    justify-content: flex-start;
-    width: 100%;
+    justify-content: space-between;
+    width: 95%;
+    flex-wrap: nowrap;
 
-    .recipe-name {
-        width: 300px;
+    border-radius: 8px;
+    border-width: 8px;
+    border: thick;
+    border-style: groove;
+    border-color: black;
+    background-color: grey;
+
+    p {
+        margin: 0;
     }
 }
 
-.ingredient-list {
+.recipe-name {
+    width: 160px;
+}
+
+.recipe-ingredient-list {
     justify-content: flex-start;
+    gap: 8px;
 }
 
 .ingredient-count {

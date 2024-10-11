@@ -5,6 +5,8 @@ import { RecipeSelector } from "../selectors/RecipeSelector";
 import { TypeSelectors } from "../selectors/TypeSelectors";
 import { Pokemon } from "../../../assets/resources";
 import { AppContext } from "../../../App";
+import "./MainPage.less"
+import { Column } from "../../generic/Column";
 
 export const MainPage = (props: {context: AppContext}) => {
 
@@ -13,18 +15,20 @@ export const MainPage = (props: {context: AppContext}) => {
     const [weeklyRecipe, setWeeklyRecipe] = useState<string>("");
 
     return (
-        <div>
-            <PageSection>
-                <RecipeSelector setWeeklyRecipe={setWeeklyRecipe} />
-                <TypeSelectors 
-                    setWeeklyPokemon={setWeeklyPokemon}
-                    context={context}
-                />
+        <PageSection>
+            <Column>
+                <Column className="selectors">
+                    <RecipeSelector setWeeklyRecipe={setWeeklyRecipe} />
+                    <TypeSelectors 
+                        setWeeklyPokemon={setWeeklyPokemon}
+                        context={context}
+                    />
+                </Column>
                 <Recipes 
                     pokemon={weeklyPokemon.filter(tP => context.ownedPokemon.find(oP => oP.id == tP.id && oP.Perf) != undefined)}
                     weeklyRecipe={weeklyRecipe}
                 />
-            </PageSection>
-        </div>
+            </Column>
+        </PageSection>
     )
 }
