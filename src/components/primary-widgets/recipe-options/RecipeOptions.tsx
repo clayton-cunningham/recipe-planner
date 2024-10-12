@@ -1,10 +1,10 @@
-import { ingredients, Recipe } from "../../../assets/resources";
+import { ingredients, Recipe, RecipePossibility } from "../../../assets/resources";
 import "./Recipes.less";
 import { Row } from "../../generic/Row";
 
-export const RecipeOptions = (props: {recipes: Recipe[], title: string, titleIngredients: string[]}) => {
+export const RecipeOptions = (props: {recipes: Recipe[], title: string, titleIngredients: string[], possible?: RecipePossibility}) => {
 
-    const {title, recipes, titleIngredients} = props;
+    const {title, recipes, titleIngredients, possible} = props;
 
 
     const getIngredients = (recipe: Recipe) => {
@@ -31,12 +31,16 @@ export const RecipeOptions = (props: {recipes: Recipe[], title: string, titleIng
             <h3>{title}</h3>
             <Row>
                 {ingredients.filter(i => titleIngredients.find(pI => pI == i.name)).map(i =>
-                    <img key={i.name + "_ingredient-obtainable"} className="img-s" src={i.uri} />
+                    <img key={i.name + "_ingredient-obtainable"} className="img-xs" src={i.uri} />
                 )}
             </Row>
             <Row className="recipe-entries">
                 {recipes.map(recipe => 
-                    <Row key={recipe.key + "_recipe-entry"} className={"recipe-entry"}>
+                    <Row 
+                        key={recipe.key + "_recipe-entry"} 
+                        className={"recipe-entry" 
+                            + (possible == RecipePossibility.Possible ? " possible-recipe" : "")
+                            + (possible == RecipePossibility.Impossible ? " impossible-recipe" : "")}>
                         <Row>
                             <div>
                                 <img className="img-m" src={"./recipes/" + recipe.Recipe.toLowerCase().split(" ").join("") + ".png"} />

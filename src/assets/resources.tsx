@@ -124,8 +124,8 @@ export const pokedex : Pokemon[] = [
   { id: '112', name: 'Vigoroth', portraitUri: "./portraits/288.png", berry: 'Persim', ingredient_1: 'Tomato', ingredient_2: 'Honey', ingredient_3: 'Apple',  },
   { id: '113', name: 'Slaking', portraitUri: "./portraits/289.png", berry: 'Persim', ingredient_1: 'Tomato', ingredient_2: 'Honey', ingredient_3: 'Apple',  },
   { id: '114', name: 'Sableye', portraitUri: "./portraits/302.png", berry: 'Wiki', ingredient_1: 'Oil', ingredient_2: 'Mushroom', ingredient_3: 'Cacao',  },
-  { id: '115', name: 'Gulpin', portraitUri: "./portraits/316.png", berry: 'Chesto', ingredient_1: 'Soybeans', ingredient_2: 'Mushoom', ingredient_3: 'Honey',  },
-  { id: '116', name: 'Swalot', portraitUri: "./portraits/317.png", berry: 'Chesto', ingredient_1: 'Soybeans', ingredient_2: 'Mushoom', ingredient_3: 'Honey',  },
+  { id: '115', name: 'Gulpin', portraitUri: "./portraits/316.png", berry: 'Chesto', ingredient_1: 'Soybeans', ingredient_2: 'Mushroom', ingredient_3: 'Honey',  },
+  { id: '116', name: 'Swalot', portraitUri: "./portraits/317.png", berry: 'Chesto', ingredient_1: 'Soybeans', ingredient_2: 'Mushroom', ingredient_3: 'Honey',  },
   { id: '117', name: 'Swablu', portraitUri: "./portraits/333.png", berry: 'Pamtre', ingredient_1: 'Egg', ingredient_2: 'Soybeans', ingredient_3: 'Apple',  },
   { id: '118', name: 'Altaria', portraitUri: "./portraits/334.png", berry: 'Yache', ingredient_1: 'Egg', ingredient_2: 'Soybeans', ingredient_3: 'Apple',  },
   { id: '119', name: 'Shuppet', portraitUri: "./portraits/353.png", berry: 'Bluk', ingredient_1: 'Oil', ingredient_2: 'Ginger', ingredient_3: 'Mushroom',  },
@@ -251,6 +251,7 @@ export type BoxEntry = {
   id: string,
   Owned: boolean,
   Perf: boolean,
+  lvl30?: boolean,
   Pokemon: string,
 }
 
@@ -455,6 +456,12 @@ export type Recipe = {
   Sausage: string,
   Coffee?: string,
   Total_ingredients: string,
+}
+
+export const enum RecipePossibility {
+    Possible,
+    Impossible,
+    Other
 }
 
 export type Ingredients = {

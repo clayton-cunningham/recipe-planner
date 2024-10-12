@@ -70,6 +70,7 @@ export const TypeSelector = (props: {pokemon: Pokemon[], setPokemon: Dispatch<Se
 
                                             return (
                                                 <img
+                                                    key={subDexEntry.id + "_sub-dex-entry"}
                                                     className="img-xs"
                                                     src={subDexEntry.portraitUri}
                                                 />
@@ -86,10 +87,14 @@ export const TypeSelector = (props: {pokemon: Pokemon[], setPokemon: Dispatch<Se
                                         src={ingredients.find(i => i.name == dexEntry.ingredient_2)?.uri}
                                         className="img-xs"
                                     />
-                                    <img 
-                                        src={ingredients.find(i => i.name == dexEntry.ingredient_3)?.uri}
-                                        className="img-xs"
-                                    />
+                                    {dexEntry.ingredient_3 ?
+                                        <img 
+                                            src={ingredients.find(i => i.name == dexEntry.ingredient_3)?.uri}
+                                            className="img-xs"
+                                        />
+                                        :
+                                        <div className="img-xs"/>
+                                    }
                                 </Row>
                             </div>
                         </Column>

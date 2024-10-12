@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ingredients, Pokemon, Recipe, recipes } from "../../../assets/resources";
+import { ingredients, Pokemon, Recipe, RecipePossibility, recipes } from "../../../assets/resources";
 import "./Recipes.less";
 import { RecipeOptions } from "./RecipeOptions"
 import { Row } from "../../generic/Row";
@@ -76,13 +76,14 @@ export const Recipes = (props: {pokemon: Pokemon[], weeklyRecipe: string}) => {
 
     return (
         <Row className="recipes-section">
-            <RecipeOptions title="Level 0 Recipes" recipes={lvl0Recipes} titleIngredients={lvl0Ingredients} />
+            <RecipeOptions title="Level 0 Recipes" recipes={lvl0Recipes} titleIngredients={lvl0Ingredients} possible={RecipePossibility.Possible} />
             <RecipeOptions title="Level 30 Recipes" recipes={lvl30Recipes} titleIngredients={lvl30Ingredients} />
             <RecipeOptions title="Level 60 Recipes" recipes={lvl60Recipes} titleIngredients={lvl60Ingredients} />
             <RecipeOptions 
                 title="Impossible Recipes"
                 recipes={impossibleRecipes} 
-                titleIngredients={impossibleIngredients} 
+                titleIngredients={impossibleIngredients}
+                possible={RecipePossibility.Impossible}
             />
         </Row>
     )
