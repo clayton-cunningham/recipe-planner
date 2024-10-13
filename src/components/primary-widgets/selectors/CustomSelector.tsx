@@ -6,6 +6,7 @@ import "./Selectors.less"
 import { PokemonSelector } from "./PokemonSelector";
 import { CloseButton } from "../../generic/CloseButton";
 import { Column } from "../../generic/Column";
+import { CloseBackground } from "../../generic/CloseBackground";
 
 export const CustomSelector = (props: {setPokemon: Dispatch<SetStateAction<Pokemon[]>>, context: AppContext, excludeLevel60: boolean}) => {
 
@@ -68,33 +69,40 @@ export const CustomSelector = (props: {setPokemon: Dispatch<SetStateAction<Pokem
                 </Column>
             </Row>
             {showSelectorWindow &&
-                <div className="custom-selector-window">
-                    <Row className="custom-selector-window-inner">
-                        {typeGroups.map(tG => {
-                            return (
-                                <div key={tG.key + "_custom-selector-entry"}>
-                                    <PokemonSelector
-                                        context={context}
-                                        typeGroup={tG}
-                                        excludeLevel60={excludeLevel60}
-                                        mainAction={(dexEntry: Pokemon) => {
-                                            context.selectPokemon(dexEntry);
-                                            addCustomSelection(tG);
-                                            setShowSelectorWindow(false);
-                                        }}
-                                        ingredientAction={(dexEntry: Pokemon, ingredientLevel: IngredientLevel) => {
-                                            context.selectPokemonIngredients(dexEntry, ingredientLevel);
-                                            addCustomSelection(tG);
-                                            setShowSelectorWindow(false);
-                                        }}
-                                    />
-                                </div>
-                            )
-                        })}
-                    </Row>
-                    <CloseButton
+                <div>
+                    <CloseBackground
                         action={() => setShowSelectorWindow(false)}
                     />
+                    <div 
+                        className="custom-selector-window"
+                    >
+                        <Row className="custom-selector-window-inner">
+                            {typeGroups.map(tG => {
+                                return (
+                                    <div key={tG.key + "_custom-selector-entry"}>
+                                        <PokemonSelector
+                                            context={context}
+                                            typeGroup={tG}
+                                            excludeLevel60={excludeLevel60}
+                                            mainAction={(dexEntry: Pokemon) => {
+                                                context.selectPokemon(dexEntry);
+                                                addCustomSelection(tG);
+                                                setShowSelectorWindow(false);
+                                            }}
+                                            ingredientAction={(dexEntry: Pokemon, ingredientLevel: IngredientLevel) => {
+                                                context.selectPokemonIngredients(dexEntry, ingredientLevel);
+                                                addCustomSelection(tG);
+                                                setShowSelectorWindow(false);
+                                            }}
+                                        />
+                                    </div>
+                                )
+                            })}
+                        </Row>
+                        <CloseButton
+                            action={() => setShowSelectorWindow(false)}
+                        />
+                    </div>
                 </div>
             }
         </Row>
