@@ -25,8 +25,9 @@ export const MainPage = (props: {context: AppContext}) => {
                     />
                 </Column>
                 <Recipes 
-                    pokemon={weeklyPokemon.filter(tP => context.ownedPokemon.find(oP => oP.id == tP.id && oP.Perf) != undefined)}
+                    weeklyPokemon={weeklyPokemon}
                     weeklyRecipe={weeklyRecipe}
+                    ownedPokemon={context.ownedPokemon}
                 />
             </Column>
         </PageSection>

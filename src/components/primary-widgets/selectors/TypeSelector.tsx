@@ -1,11 +1,12 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import { berryTypes, ingredients, pokedex, Pokemon, TypeGroup, typeGroups } from "../../../assets/resources";
+import { berryTypes, BoxEntry, IngredientLevel, ingredients, pokedex, Pokemon, TypeGroup, typeGroups } from "../../../assets/resources";
 import { Dropdown } from "../../generic/Dropdown";
 import { Row } from "../../generic/Row";
 import { formatIdForPng } from "../helpers";
 import { AppContext } from "../../../App";
 import "./Selectors.less"
 import { Column } from "../../generic/Column";
+import { Pill } from "../../generic/Pill";
 
 export const TypeSelector = (props: {pokemon: Pokemon[], setPokemon: Dispatch<SetStateAction<Pokemon[]>>, context: AppContext}) => {
 
@@ -20,6 +21,14 @@ export const TypeSelector = (props: {pokemon: Pokemon[], setPokemon: Dispatch<Se
         setPokemon(pokemon);
         setActiveTypeGroups(typeGroupSubsets);
     }, [title])
+
+    const getIngredientPillState = (monState: BoxEntry | undefined) => {
+        // We can have deactivated entries with filled in data, so we have to check both fields for 30 & 60.
+        if (monState?.Perf && monState?.ingredientLevel == IngredientLevel.Lvl60) return "left-3";
+        if (monState?.Perf && monState?.ingredientLevel == IngredientLevel.Lvl30) return "left-2";
+        if (monState?.Perf) return "left-1";
+        else return "left-0"
+    }
 
     return (
         <Row className="type-selector">
@@ -78,19 +87,32 @@ export const TypeSelector = (props: {pokemon: Pokemon[], setPokemon: Dispatch<Se
                                         })}
                                     </Row>
                                 </div>
-                                <Row>
+                                <Row className="pokemon-ingredients">
+                                    <Pill className={"green " + getIngredientPillState(monState)} />
                                     <img 
                                         src={ingredients.find(i => i.name == dexEntry.ingredient_1)?.uri}
                                         className="img-xs"
+                                        onClick={(event) => {
+                                            context.selectPokemonIngredients(dexEntry, IngredientLevel.Lvl0); 
+                                            event.stopPropagation();
+                                        }}
                                     />
                                     <img 
                                         src={ingredients.find(i => i.name == dexEntry.ingredient_2)?.uri}
                                         className="img-xs"
+                                        onClick={(event) => {
+                                            context.selectPokemonIngredients(dexEntry, IngredientLevel.Lvl30); 
+                                            event.stopPropagation();
+                                        }}
                                     />
                                     {dexEntry.ingredient_3 ?
                                         <img 
                                             src={ingredients.find(i => i.name == dexEntry.ingredient_3)?.uri}
                                             className="img-xs"
+                                            onClick={(event) => {
+                                                context.selectPokemonIngredients(dexEntry, IngredientLevel.Lvl60); 
+                                                event.stopPropagation();
+                                            }}
                                         />
                                         :
                                         <div className="img-xs"/>

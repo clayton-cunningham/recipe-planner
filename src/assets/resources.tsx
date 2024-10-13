@@ -251,8 +251,14 @@ export type BoxEntry = {
   id: string,
   Owned: boolean,
   Perf: boolean,
-  lvl30?: boolean,
+  ingredientLevel?: IngredientLevel,
   Pokemon: string,
+}
+
+export enum IngredientLevel {
+  Lvl0,
+  Lvl30,
+  Lvl60
 }
 
 export const pokemonBox : BoxEntry[] = [
