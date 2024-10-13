@@ -34,20 +34,22 @@ export const CustomSelector = (props: {setPokemon: Dispatch<SetStateAction<Pokem
             <Row>
                 {activeTypeGroups.map(tG => {
                     return (
-                        <PokemonSelector
-                            context={context}
-                            typeGroup={tG}
-                            excludeLevel60={excludeLevel60}
-                            mainAction={(dexEntry: Pokemon) => {
-                                context.togglePokemon(dexEntry);
-                            }}
-                            ingredientAction={(dexEntry: Pokemon, ingredientLevel: IngredientLevel) => {
-                                context.selectPokemonIngredients(dexEntry, ingredientLevel);
-                            }}
-                            closeAction={() => {
-                                removeCustomSelection(tG);
-                            }}
-                        />
+                        <div key={tG.key + "_custom-type-group"}>
+                            <PokemonSelector
+                                context={context}
+                                typeGroup={tG}
+                                excludeLevel60={excludeLevel60}
+                                mainAction={(dexEntry: Pokemon) => {
+                                    context.togglePokemon(dexEntry);
+                                }}
+                                ingredientAction={(dexEntry: Pokemon, ingredientLevel: IngredientLevel) => {
+                                    context.selectPokemonIngredients(dexEntry, ingredientLevel);
+                                }}
+                                closeAction={() => {
+                                    removeCustomSelection(tG);
+                                }}
+                            />
+                        </div>
                     )
                 })}
                 
@@ -70,21 +72,23 @@ export const CustomSelector = (props: {setPokemon: Dispatch<SetStateAction<Pokem
                     <Row className="custom-selector-window-inner">
                         {typeGroups.map(tG => {
                             return (
-                                <PokemonSelector
-                                    context={context}
-                                    typeGroup={tG}
-                                    excludeLevel60={excludeLevel60}
-                                    mainAction={(dexEntry: Pokemon) => {
-                                        context.selectPokemon(dexEntry);
-                                        addCustomSelection(tG);
-                                        setShowSelectorWindow(false);
-                                    }}
-                                    ingredientAction={(dexEntry: Pokemon, ingredientLevel: IngredientLevel) => {
-                                        context.selectPokemonIngredients(dexEntry, ingredientLevel);
-                                        addCustomSelection(tG);
-                                        setShowSelectorWindow(false);
-                                    }}
-                                />
+                                <div key={tG.key + "_custom-selector-entry"}>
+                                    <PokemonSelector
+                                        context={context}
+                                        typeGroup={tG}
+                                        excludeLevel60={excludeLevel60}
+                                        mainAction={(dexEntry: Pokemon) => {
+                                            context.selectPokemon(dexEntry);
+                                            addCustomSelection(tG);
+                                            setShowSelectorWindow(false);
+                                        }}
+                                        ingredientAction={(dexEntry: Pokemon, ingredientLevel: IngredientLevel) => {
+                                            context.selectPokemonIngredients(dexEntry, ingredientLevel);
+                                            addCustomSelection(tG);
+                                            setShowSelectorWindow(false);
+                                        }}
+                                    />
+                                </div>
                             )
                         })}
                     </Row>

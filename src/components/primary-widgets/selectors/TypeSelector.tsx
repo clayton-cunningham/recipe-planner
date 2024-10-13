@@ -47,13 +47,15 @@ export const TypeSelector = (props: {setPokemon: Dispatch<SetStateAction<Pokemon
             <Row>
                 {activeTypeGroups.map(tG => {
                     return (
-                        <PokemonSelector
-                            context={context}
-                            typeGroup={tG}
-                            excludeLevel60={excludeLevel60}
-                            mainAction={(dexEntry: Pokemon) => context.togglePokemon(dexEntry)}
-                            ingredientAction={(dexEntry: Pokemon, ingredientLevel: IngredientLevel) => context.selectPokemonIngredients(dexEntry, ingredientLevel)}
-                        />
+                        <div key={tG.key + "_active-type-group"}>
+                            <PokemonSelector
+                                context={context}
+                                typeGroup={tG}
+                                excludeLevel60={excludeLevel60}
+                                mainAction={(dexEntry: Pokemon) => context.togglePokemon(dexEntry)}
+                                ingredientAction={(dexEntry: Pokemon, ingredientLevel: IngredientLevel) => context.selectPokemonIngredients(dexEntry, ingredientLevel)}
+                            />
+                        </div>
                     )
                 })}
             </Row>
