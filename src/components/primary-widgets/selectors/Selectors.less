@@ -7,6 +7,7 @@
     transition: .5s;
     border-style: solid;
     border-radius: 8px;
+    position: relative;
     z-index: 0;
 }
 
@@ -16,7 +17,7 @@
 
 .can-use {
     opacity: 1;
-    border-color: grey;
+    border-color: white;
 }
 
 .cant-use {
@@ -87,4 +88,18 @@
 .custom-selector-window-open-img {
     width: 55px;
     height: 55px;
+
+    @media only screen and (max-width: 700px) {
+      width: 30px;
+      height: 30px;
+    }
+}
+
+.hover-highlight {
+    position: relative;
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
 }

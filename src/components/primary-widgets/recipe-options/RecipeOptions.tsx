@@ -1,6 +1,7 @@
 import { ingredients, Recipe, RecipePossibility } from "../../../assets/resources";
 import "./Recipes.less";
 import { Row } from "../../generic/Row";
+import { RowColumnAdaptive } from "../../generic/RowColumnAdaptive";
 
 export const RecipeOptions = (props: {recipes: Recipe[], title: string, titleIngredients: string[], possible?: RecipePossibility}) => {
 
@@ -28,19 +29,22 @@ export const RecipeOptions = (props: {recipes: Recipe[], title: string, titleIng
     
     return (
         <div className="recipe-list">
-            <h3>{title}</h3>
-            <Row>
-                {ingredients.filter(i => titleIngredients.find(pI => pI == i.name)).map(i =>
-                    <img key={i.name + "_ingredient-obtainable"} className="img-xs" src={i.uri} />
-                )}
-            </Row>
+            <div className="recipe-list-title">
+                <h3>{title}</h3>
+                <Row>
+                    {ingredients.filter(i => titleIngredients.find(pI => pI == i.name)).map(i =>
+                        <img key={i.name + "_ingredient-obtainable"} className="img-xs" src={i.uri} />
+                    )}
+                </Row>
+            </div>
             <Row className="recipe-entries">
                 {recipes.map(recipe => 
-                    <Row 
+                    <RowColumnAdaptive 
                         key={recipe.key + "_recipe-entry"} 
                         className={"recipe-entry" 
                             + (possible == RecipePossibility.Possible ? " possible-recipe" : "")
-                            + (possible == RecipePossibility.Impossible ? " impossible-recipe" : "")}>
+                            + (possible == RecipePossibility.Impossible ? " impossible-recipe" : "")}
+                    >
                         <Row>
                             <div>
                                 <img className="img-m" src={"./recipes/" + recipe.Recipe.toLowerCase().split(" ").join("") + ".png"} />
@@ -50,7 +54,7 @@ export const RecipeOptions = (props: {recipes: Recipe[], title: string, titleIng
                         <Row className="recipe-ingredient-list">
                             {getIngredients(recipe)}
                         </Row>
-                    </Row>
+                    </RowColumnAdaptive>
                 )}
             </Row>
             {/* {recipes.length > 0 &&

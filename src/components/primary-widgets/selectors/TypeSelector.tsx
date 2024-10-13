@@ -5,6 +5,7 @@ import { Row } from "../../generic/Row";
 import { AppContext } from "../../../App";
 import "./Selectors.less"
 import { PokemonSelector } from "./PokemonSelector";
+import { RowColumnAdaptive } from "../../generic/RowColumnAdaptive";
 
 export const TypeSelector = (props: {setPokemon: Dispatch<SetStateAction<Pokemon[]>>, context: AppContext, excludeLevel60: boolean}) => {
 
@@ -21,8 +22,9 @@ export const TypeSelector = (props: {setPokemon: Dispatch<SetStateAction<Pokemon
     }, [title])
 
     return (
-        <Row className="type-selector">
+        <RowColumnAdaptive className="type-selector mobile-width-90">
             <Dropdown
+                className="mobile-width-90"
                 menuDisplay={
                     <Row>
                         {titleImg &&
@@ -37,7 +39,7 @@ export const TypeSelector = (props: {setPokemon: Dispatch<SetStateAction<Pokemon
                             <Row>
                                 <img className="img-xs" src={berryType.berryImageUri} />
                                 <p className="flex-1">{berryType.berryName}</p>
-                                <p className="flex-1">{berryType.typeName}</p>
+                                {/* <p className="flex-1">{berryType.typeName}</p> */}
                                 <img className="img-xs" src={berryType.typeImageUri} />
                             </Row>
                         </div>
@@ -59,6 +61,6 @@ export const TypeSelector = (props: {setPokemon: Dispatch<SetStateAction<Pokemon
                     )
                 })}
             </Row>
-        </Row>
+        </RowColumnAdaptive>
     )
 }

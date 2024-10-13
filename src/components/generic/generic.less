@@ -15,6 +15,23 @@
     flex-wrap: wrap;
 }
 
+.row-column-adaptive {
+    @media only screen and (min-width: 700px) {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    
+    @media only screen and (max-width: 700px) {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+    }
+}
+
 .left-align {
     width: 100%;
     justify-content: flex-start;
@@ -131,6 +148,12 @@
         div:hover {
             background-color: grey;
         }
+    }
+}
+
+.mobile-width-90 { 
+    @media only screen and (max-width: 700px) {
+        width: 90%; 
     }
 }
 

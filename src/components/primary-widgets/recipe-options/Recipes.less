@@ -13,6 +13,12 @@
     width: 25%;
 }
 
+.recipe-list-title {
+    @media only screen and (max-width: 700px) {
+        min-height: 70px;;
+    }
+}
+
 .recipes-lists {
     width: 100%;
     align-items: flex-start;
@@ -31,6 +37,7 @@
     justify-content: space-between;
     width: 95%;
     flex-wrap: nowrap;
+    gap: 0;
 
     border-radius: 8px;
     border-width: 8px;
@@ -45,7 +52,9 @@
 }
 
 .recipe-name {
-    width: 160px;
+    @media only screen and (min-width: 700px) {
+        width: 160px;
+    }
 }
 
 .recipe-ingredient-list {

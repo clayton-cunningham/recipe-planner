@@ -106,8 +106,8 @@ export const Recipes = (props: {weeklyPokemon: Pokemon[], weeklyRecipe: string, 
                 <RecipeOptions title="Possible Recipes"             recipes={column1Recipes} titleIngredients={column1Ingredients} 
                     possible={RecipePossibility.Possible} />
                 <RecipeOptions title="Recipes at Higher Levels"     recipes={column2Recipes} titleIngredients={column2Ingredients} />
-                <RecipeOptions title="Other Possible Recipes"    recipes={column3Recipes} titleIngredients={column3Ingredients} />
-                <RecipeOptions title="Impossible Recipes this Week" recipes={column4Recipes} titleIngredients={column4Ingredients}
+                <RecipeOptions title="Possible with more Pokémon"    recipes={column3Recipes} titleIngredients={column3Ingredients} />
+                <RecipeOptions title="Impossible this Week" recipes={column4Recipes} titleIngredients={column4Ingredients}
                     possible={RecipePossibility.Impossible}
                 />
             </Row>

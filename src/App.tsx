@@ -2,7 +2,6 @@ import { useState } from 'react';
 import './App.css'
 import { Column } from './components/generic/Column'
 import { MainPage } from './components/primary-widgets/main-page/MainPage'
-import { PokemonList } from './components/primary-widgets/pokemon-list/PokemonList'
 import { BoxEntry, IngredientLevel, Pokemon, pokemonBox } from './assets/resources';
 
 export type AppContext = {
@@ -61,7 +60,7 @@ function App() {
     <>
       <Column>
         <MainPage context={{selectedPokemon, togglePokemon, selectPokemon, selectPokemonIngredients}}/>
-        <PokemonList context={{selectedPokemon, togglePokemon, selectPokemon, selectPokemonIngredients}}/>
+        {/* <PokemonList context={{selectedPokemon, togglePokemon, selectPokemon, selectPokemonIngredients}}/> */}
       </Column>
     </>
   )
