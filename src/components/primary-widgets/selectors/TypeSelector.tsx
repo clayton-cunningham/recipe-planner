@@ -9,9 +9,9 @@ import { Column } from "../../generic/Column";
 import { Pill } from "../../generic/Pill";
 import { HoverHighlight } from "../../generic/HoverHighlight";
 
-export const TypeSelector = (props: {pokemon: Pokemon[], setPokemon: Dispatch<SetStateAction<Pokemon[]>>, context: AppContext}) => {
+export const TypeSelector = (props: {pokemon: Pokemon[], setPokemon: Dispatch<SetStateAction<Pokemon[]>>, context: AppContext, excludeLevel60: boolean}) => {
 
-    const {setPokemon, context} = props;
+    const {setPokemon, context, excludeLevel60} = props;
     const [titleImg, setTitleImg] = useState("");
     const [title, setTitle] = useState("Select a Berry");
     const [activeTypeGroups, setActiveTypeGroups] = useState<TypeGroup[]>([]);
@@ -29,6 +29,11 @@ export const TypeSelector = (props: {pokemon: Pokemon[], setPokemon: Dispatch<Se
         if (monState?.Perf && monState?.ingredientLevel == IngredientLevel.Lvl30) return "left-2";
         if (monState?.Perf) return "left-1";
         else return "left-0"
+    }
+
+    const getExludePillState = (excludeLevel60: boolean) => {
+        if (excludeLevel60) return "right-1";
+        else return "right-0"
     }
 
     return (
@@ -89,6 +94,9 @@ export const TypeSelector = (props: {pokemon: Pokemon[], setPokemon: Dispatch<Se
                                     </Row>
                                 </div>
                                 <Row className="pokemon-ingredients">
+                                    {dexEntry.ingredient_3 &&
+                                        <Pill className={"grey " + getExludePillState(excludeLevel60)} />
+                                    }
                                     <Pill className={"green " + getIngredientPillState(monState)} />
                                     <HoverHighlight className="img-xs">
                                         <img 
@@ -101,29 +109,29 @@ export const TypeSelector = (props: {pokemon: Pokemon[], setPokemon: Dispatch<Se
                                         />
                                     </HoverHighlight>
                                     <HoverHighlight className="img-xs">
-                                    <img 
-                                        src={ingredients.find(i => i.name == dexEntry.ingredient_2)?.uri}
-                                        className="img-xs"
-                                        onClick={(event) => {
-                                            context.selectPokemonIngredients(dexEntry, IngredientLevel.Lvl30); 
-                                            event.stopPropagation();
-                                        }}
-                                    />
-                                    </HoverHighlight>
-                                    <HoverHighlight className="img-xs">
-                                    {dexEntry.ingredient_3 ?
                                         <img 
-                                            src={ingredients.find(i => i.name == dexEntry.ingredient_3)?.uri}
+                                            src={ingredients.find(i => i.name == dexEntry.ingredient_2)?.uri}
                                             className="img-xs"
                                             onClick={(event) => {
-                                                context.selectPokemonIngredients(dexEntry, IngredientLevel.Lvl60); 
+                                                context.selectPokemonIngredients(dexEntry, IngredientLevel.Lvl30); 
                                                 event.stopPropagation();
                                             }}
                                         />
+                                    </HoverHighlight>
+                                    {dexEntry.ingredient_3 ?
+                                        <HoverHighlight className="img-xs">
+                                            <img 
+                                                src={ingredients.find(i => i.name == dexEntry.ingredient_3)?.uri}
+                                                className="img-xs"
+                                                onClick={(event) => {
+                                                    context.selectPokemonIngredients(dexEntry, IngredientLevel.Lvl60); 
+                                                    event.stopPropagation();
+                                                }}
+                                            />
+                                        </HoverHighlight>
                                         :
                                         <div className="img-xs"/>
                                     }
-                                    </HoverHighlight>
                                 </Row>
                             </div>
                         </Column>

@@ -13,6 +13,7 @@ export const MainPage = (props: {context: AppContext}) => {
     const {context} = props;
     const [weeklyPokemon, setWeeklyPokemon] = useState<Pokemon[]>([]);
     const [weeklyRecipe, setWeeklyRecipe] = useState<string>("");
+    const [excludeLevel60, setExcludeLevel60] = useState(true);
 
     return (
         <PageSection>
@@ -22,12 +23,15 @@ export const MainPage = (props: {context: AppContext}) => {
                     <TypeSelectors 
                         setWeeklyPokemon={setWeeklyPokemon}
                         context={context}
+                        excludeLevel60={excludeLevel60}
                     />
                 </Column>
                 <Recipes 
                     weeklyPokemon={weeklyPokemon}
                     weeklyRecipe={weeklyRecipe}
                     ownedPokemon={context.ownedPokemon}
+                    excludeLevel60={excludeLevel60}
+                    setExcludeLevel60={setExcludeLevel60}
                 />
             </Column>
         </PageSection>

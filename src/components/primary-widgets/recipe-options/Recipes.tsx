@@ -1,12 +1,13 @@
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { BoxEntry, IngredientLevel, ingredients, Pokemon, Recipe, RecipePossibility, recipes } from "../../../assets/resources";
 import "./Recipes.less";
 import { RecipeOptions } from "./RecipeOptions"
 import { Row } from "../../generic/Row";
+import { Column } from "../../generic/Column";
 
-export const Recipes = (props: {weeklyPokemon: Pokemon[], weeklyRecipe: string, ownedPokemon: BoxEntry[]}) => {
+export const Recipes = (props: {weeklyPokemon: Pokemon[], weeklyRecipe: string, ownedPokemon: BoxEntry[], excludeLevel60: boolean, setExcludeLevel60: Dispatch<SetStateAction<boolean>>}) => {
 
-    const {weeklyPokemon, weeklyRecipe, ownedPokemon} = props;
+    const {weeklyPokemon, weeklyRecipe, ownedPokemon, excludeLevel60, setExcludeLevel60} = props;
     const [column1Recipes, setColumn1Recipes] = useState<Recipe[]>([]);
     const [column2Recipes, setColumn2Recipes] = useState<Recipe[]>([]);
     const [column3Recipes, setColumn3Recipes] = useState<Recipe[]>([]);
@@ -26,14 +27,15 @@ export const Recipes = (props: {weeklyPokemon: Pokemon[], weeklyRecipe: string, 
             .concat(selectedDexEntries.filter(p => ownedPokemon.find(oP => oP.id == p.id && oP.Perf && oP.ingredientLevel == IngredientLevel.Lvl60) != undefined).map(p => p.ingredient_3));
         
         // Get ingredients possible with higher levels on selected pokemon
-        var higherLvlIngredients = selectedDexEntries.map(p => p.ingredient_2).concat(
-                selectedDexEntries.map(p => p.ingredient_3)
-            ).filter(i => !possibleIngredients.includes(i));
+        var higherLvlIngredients = selectedDexEntries.map(p => p.ingredient_2);
+        if (!excludeLevel60) higherLvlIngredients = higherLvlIngredients.concat(selectedDexEntries.map(p => p.ingredient_3));
+        higherLvlIngredients = higherLvlIngredients.filter(i => !possibleIngredients.includes(i));
 
         // Get ingredients possible with other pokemon for the week's favorite berries
-        const nonSelectedDexEntries = weeklyPokemon.filter(tP => ownedPokemon.find(oP => oP.id == tP.id && !oP.Perf) != undefined);
-        var otherMonIngredients = nonSelectedDexEntries.map(p => p.ingredient_1).concat(nonSelectedDexEntries.map(p => p.ingredient_2)).concat(nonSelectedDexEntries.map(p => p.ingredient_3))
-            .filter(i => !possibleIngredients.includes(i));
+        const nonSelectedDexEntries = weeklyPokemon.filter(tP => ownedPokemon.find(oP => oP.id == tP.id) != undefined);
+        var otherMonIngredients = nonSelectedDexEntries.map(p => p.ingredient_1).concat(nonSelectedDexEntries.map(p => p.ingredient_2));
+        if (!excludeLevel60) otherMonIngredients = otherMonIngredients.concat(nonSelectedDexEntries.map(p => p.ingredient_3));
+        otherMonIngredients = otherMonIngredients.filter(i => !possibleIngredients.includes(i) && !higherLvlIngredients.includes(i));
 
         // Get all other ingredients
         var impossibleIngredients = ingredients.map(i => i.name)
@@ -60,9 +62,9 @@ export const Recipes = (props: {weeklyPokemon: Pokemon[], weeklyRecipe: string, 
                         missingForSelected = true;
                         if (iCount != "0" && higherLvlIngredients.find(i => i == ingredient.name) == undefined) {
                             missingForHigherLevels = true;
-                        }
-                        if (iCount != "0" && otherMonIngredients.find(i => i == ingredient.name) == undefined) {
-                            missingForOthers = true;
+                            if (iCount != "0" && otherMonIngredients.find(i => i == ingredient.name) == undefined) {
+                                missingForOthers = true;
+                            }
                         }
                     }
                 }
@@ -71,17 +73,16 @@ export const Recipes = (props: {weeklyPokemon: Pokemon[], weeklyRecipe: string, 
             if (!missingForSelected) {
                 lvl0Recipes.push(recipe);
             }
-            else {
-                if (!missingForHigherLevels) {
-                    lvl30Recipes.push(recipe);
-                }
-                if (!missingForOthers) {
-                    lvl60Recipes.push(recipe);
-                }
-                else {
-                    impossibleRecipes.push(recipe);
-                }
+            else if (!missingForHigherLevels) {
+                lvl30Recipes.push(recipe);
             }
+            else if (!missingForOthers) {
+                lvl60Recipes.push(recipe);
+            }
+            else {
+                impossibleRecipes.push(recipe);
+            }
+            
         })
 
         // Update all of our variables for UI
@@ -93,17 +94,23 @@ export const Recipes = (props: {weeklyPokemon: Pokemon[], weeklyRecipe: string, 
         setColumn2Ingredients(higherLvlIngredients);
         setColumn3Ingredients(otherMonIngredients);
         setColumn4Ingredients(impossibleIngredients);
-    }, [weeklyRecipe, weeklyPokemon, ownedPokemon])
+    }, [weeklyRecipe, weeklyPokemon, ownedPokemon, excludeLevel60])
 
     return (
-        <Row className="recipes-section">
-            <RecipeOptions title="Possible Recipes"             recipes={column1Recipes} titleIngredients={column1Ingredients} 
-                possible={RecipePossibility.Possible} />
-            <RecipeOptions title="Recipes at Higher Levels"     recipes={column2Recipes} titleIngredients={column2Ingredients} />
-            <RecipeOptions title="Recipes with more Pokémon"    recipes={column3Recipes} titleIngredients={column3Ingredients} />
-            <RecipeOptions title="Impossible Recipes this Week" recipes={column4Recipes} titleIngredients={column4Ingredients}
-                possible={RecipePossibility.Impossible}
-            />
-        </Row>
+        <Column className="recipes-section">
+            <Row className="recipes-header">
+                <input type="checkbox" checked={excludeLevel60} onChange={() => {setExcludeLevel60(!excludeLevel60)}} />
+                <p>Exclude Level 60 Ingredients</p>
+            </Row>
+            <Row className="recipes-lists">
+                <RecipeOptions title="Possible Recipes"             recipes={column1Recipes} titleIngredients={column1Ingredients} 
+                    possible={RecipePossibility.Possible} />
+                <RecipeOptions title="Recipes at Higher Levels"     recipes={column2Recipes} titleIngredients={column2Ingredients} />
+                <RecipeOptions title="Other Possible Recipes"    recipes={column3Recipes} titleIngredients={column3Ingredients} />
+                <RecipeOptions title="Impossible Recipes this Week" recipes={column4Recipes} titleIngredients={column4Ingredients}
+                    possible={RecipePossibility.Impossible}
+                />
+            </Row>
+        </Column>
     )
 }
