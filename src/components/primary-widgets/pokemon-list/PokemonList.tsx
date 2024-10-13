@@ -9,7 +9,7 @@ import { AppContext } from "../../../App.tsx";
 
 export const PokemonList = (props: {context: AppContext}) => {
 
-    const {ownedPokemon, togglePokemon} = props.context;
+    const {selectedPokemon, togglePokemon} = props.context;
 
     return (
         <div className="pokemon-list">
@@ -17,7 +17,7 @@ export const PokemonList = (props: {context: AppContext}) => {
                 <Column>
                     {pokedex.map(mon => {
                         
-                        var monState = ownedPokemon.find(oP => oP.id == mon.id)
+                        var monState = selectedPokemon.find(oP => oP.id == mon.id)
 
                         return (
                             <div key={mon.id + "_Pokemon"} onClick={() => togglePokemon(mon)}>

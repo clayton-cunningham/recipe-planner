@@ -15,7 +15,7 @@ export const PokemonSelector = (props: {typeGroup: TypeGroup, context: AppContex
     var dexEntry = pokedex.find(p => p.name == typeGroup.default)!;
     if (dexEntry == undefined) return null;
 
-    var monState = context.ownedPokemon.find(oP => oP.id == dexEntry.id);
+    var monState = context.selectedPokemon.find(oP => oP.id == dexEntry.id);
 
     const getIngredientPillState = (monState: BoxEntry | undefined) => {
         // We can have deactivated entries with filled in data, so we have to check both fields for 30 & 60.

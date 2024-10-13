@@ -5,9 +5,9 @@ import { RecipeOptions } from "./RecipeOptions"
 import { Row } from "../../generic/Row";
 import { Column } from "../../generic/Column";
 
-export const Recipes = (props: {weeklyPokemon: Pokemon[], weeklyRecipe: string, ownedPokemon: BoxEntry[], excludeLevel60: boolean, setExcludeLevel60: Dispatch<SetStateAction<boolean>>}) => {
+export const Recipes = (props: {weeklyPokemon: Pokemon[], weeklyRecipe: string, selectedPokemon: BoxEntry[], excludeLevel60: boolean, setExcludeLevel60: Dispatch<SetStateAction<boolean>>}) => {
 
-    const {weeklyPokemon, weeklyRecipe, ownedPokemon, excludeLevel60, setExcludeLevel60} = props;
+    const {weeklyPokemon, weeklyRecipe, selectedPokemon, excludeLevel60, setExcludeLevel60} = props;
     const [column1Recipes, setColumn1Recipes] = useState<Recipe[]>([]);
     const [column2Recipes, setColumn2Recipes] = useState<Recipe[]>([]);
     const [column3Recipes, setColumn3Recipes] = useState<Recipe[]>([]);
@@ -18,13 +18,13 @@ export const Recipes = (props: {weeklyPokemon: Pokemon[], weeklyRecipe: string, 
     const [column4Ingredients, setColumn4Ingredients] = useState<string[]>([]);
 
     useEffect(() => {
-        const selectedDexEntries = weeklyPokemon.filter(tP => ownedPokemon.find(oP => oP.id == tP.id && oP.Perf) != undefined);
+        const selectedDexEntries = weeklyPokemon.filter(tP => selectedPokemon.find(oP => oP.id == tP.id && oP.Perf) != undefined);
 
         // Get ingredients possible with selected pokemon & ingredent levels
         var possibleIngredients = selectedDexEntries
             .map(p => p.ingredient_1)
-            .concat(selectedDexEntries.filter(p => ownedPokemon.find(oP => oP.id == p.id && oP.Perf && (oP.ingredientLevel == IngredientLevel.Lvl30 || oP.ingredientLevel == IngredientLevel.Lvl60)) != undefined).map(p => p.ingredient_2))
-            .concat(selectedDexEntries.filter(p => ownedPokemon.find(oP => oP.id == p.id && oP.Perf && oP.ingredientLevel == IngredientLevel.Lvl60) != undefined).map(p => p.ingredient_3));
+            .concat(selectedDexEntries.filter(p => selectedPokemon.find(oP => oP.id == p.id && oP.Perf && (oP.ingredientLevel == IngredientLevel.Lvl30 || oP.ingredientLevel == IngredientLevel.Lvl60)) != undefined).map(p => p.ingredient_2))
+            .concat(selectedDexEntries.filter(p => selectedPokemon.find(oP => oP.id == p.id && oP.Perf && oP.ingredientLevel == IngredientLevel.Lvl60) != undefined).map(p => p.ingredient_3));
         
         // Get ingredients possible with higher levels on selected pokemon
         var higherLvlIngredients = selectedDexEntries.map(p => p.ingredient_2);
@@ -32,7 +32,7 @@ export const Recipes = (props: {weeklyPokemon: Pokemon[], weeklyRecipe: string, 
         higherLvlIngredients = higherLvlIngredients.filter(i => !possibleIngredients.includes(i));
 
         // Get ingredients possible with other pokemon for the week's favorite berries
-        const nonSelectedDexEntries = weeklyPokemon.filter(tP => ownedPokemon.find(oP => oP.id == tP.id) != undefined);
+        const nonSelectedDexEntries = weeklyPokemon.filter(tP => selectedPokemon.find(oP => oP.id == tP.id) != undefined);
         var otherMonIngredients = nonSelectedDexEntries.map(p => p.ingredient_1).concat(nonSelectedDexEntries.map(p => p.ingredient_2));
         if (!excludeLevel60) otherMonIngredients = otherMonIngredients.concat(nonSelectedDexEntries.map(p => p.ingredient_3));
         otherMonIngredients = otherMonIngredients.filter(i => !possibleIngredients.includes(i) && !higherLvlIngredients.includes(i));
@@ -94,7 +94,7 @@ export const Recipes = (props: {weeklyPokemon: Pokemon[], weeklyRecipe: string, 
         setColumn2Ingredients(higherLvlIngredients);
         setColumn3Ingredients(otherMonIngredients);
         setColumn4Ingredients(impossibleIngredients);
-    }, [weeklyRecipe, weeklyPokemon, ownedPokemon, excludeLevel60])
+    }, [weeklyRecipe, weeklyPokemon, selectedPokemon, excludeLevel60])
 
     return (
         <Column className="recipes-section">

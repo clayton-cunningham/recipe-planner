@@ -6,36 +6,36 @@ import { PokemonList } from './components/primary-widgets/pokemon-list/PokemonLi
 import { BoxEntry, IngredientLevel, Pokemon, pokemonBox } from './assets/resources';
 
 export type AppContext = {
-  ownedPokemon: BoxEntry[],
+  selectedPokemon: BoxEntry[],
   togglePokemon: (source: Pokemon) => void,
   selectPokemonIngredients: (source: Pokemon, lvl: IngredientLevel) => void,
 }
 
 function App() {
 
-  const [ownedPokemon, setOwnedPokemon] = useState<BoxEntry[]>(pokemonBox);
+  const [selectedPokemon, setOwnedPokemon] = useState<BoxEntry[]>(pokemonBox);
 
   const togglePokemon = (source: Pokemon) => {
-      const index = ownedPokemon.findIndex(oP => oP.id == source.id);
+      const index = selectedPokemon.findIndex(oP => oP.id == source.id);
       if (index == -1) {
         throw new Error("Pokemon not found!");
       }
 
       // Update the stored value
-      var oP = ownedPokemon;
+      var oP = selectedPokemon;
       // Only toggle this mon being considered in calculations - the user shouldn't have to reselect everything later.
       oP[index].Perf = !oP[index].Perf;
       setOwnedPokemon([...oP]);
   }
 
   const selectPokemonIngredients = (source: Pokemon, lvl: IngredientLevel) => {
-      const index = ownedPokemon.findIndex(oP => oP.id == source.id);
+      const index = selectedPokemon.findIndex(oP => oP.id == source.id);
       if (index == -1) {
         throw new Error("Pokemon not found!");
       }
 
       // Update the stored value
-      var oP = ownedPokemon;
+      var oP = selectedPokemon;
 
       // Make sure this selection is now considered too - saves an extra click for the user.
       oP[index].Perf = true;
@@ -46,8 +46,8 @@ function App() {
   return (
     <>
       <Column>
-        <MainPage context={{ownedPokemon, togglePokemon, selectPokemonIngredients}}/>
-        <PokemonList context={{ownedPokemon, togglePokemon, selectPokemonIngredients}}/>
+        <MainPage context={{selectedPokemon, togglePokemon, selectPokemonIngredients}}/>
+        <PokemonList context={{selectedPokemon, togglePokemon, selectPokemonIngredients}}/>
       </Column>
     </>
   )

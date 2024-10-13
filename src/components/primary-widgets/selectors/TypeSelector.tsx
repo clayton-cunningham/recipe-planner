@@ -1,13 +1,10 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import { berryTypes, BoxEntry, IngredientLevel, ingredients, pokedex, Pokemon, TypeGroup, typeGroups } from "../../../assets/resources";
+import { berryTypes, pokedex, Pokemon, TypeGroup, typeGroups } from "../../../assets/resources";
 import { Dropdown } from "../../generic/Dropdown";
 import { Row } from "../../generic/Row";
 import { formatIdForPng } from "../helpers";
 import { AppContext } from "../../../App";
 import "./Selectors.less"
-import { Column } from "../../generic/Column";
-import { Pill } from "../../generic/Pill";
-import { HoverHighlight } from "../../generic/HoverHighlight";
 import { PokemonSelector } from "./PokemonSelector";
 
 export const TypeSelector = (props: {pokemon: Pokemon[], setPokemon: Dispatch<SetStateAction<Pokemon[]>>, context: AppContext, excludeLevel60: boolean}) => {

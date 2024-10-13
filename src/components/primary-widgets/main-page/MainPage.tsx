@@ -29,7 +29,7 @@ export const MainPage = (props: {context: AppContext}) => {
                 <Recipes 
                     weeklyPokemon={weeklyPokemon}
                     weeklyRecipe={weeklyRecipe}
-                    ownedPokemon={context.ownedPokemon}
+                    selectedPokemon={context.selectedPokemon}
                     excludeLevel60={excludeLevel60}
                     setExcludeLevel60={setExcludeLevel60}
                 />
