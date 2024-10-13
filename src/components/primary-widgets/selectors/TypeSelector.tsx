@@ -7,6 +7,7 @@ import { AppContext } from "../../../App";
 import "./Selectors.less"
 import { Column } from "../../generic/Column";
 import { Pill } from "../../generic/Pill";
+import { HoverHighlight } from "../../generic/HoverHighlight";
 
 export const TypeSelector = (props: {pokemon: Pokemon[], setPokemon: Dispatch<SetStateAction<Pokemon[]>>, context: AppContext}) => {
 
@@ -89,14 +90,17 @@ export const TypeSelector = (props: {pokemon: Pokemon[], setPokemon: Dispatch<Se
                                 </div>
                                 <Row className="pokemon-ingredients">
                                     <Pill className={"green " + getIngredientPillState(monState)} />
-                                    <img 
-                                        src={ingredients.find(i => i.name == dexEntry.ingredient_1)?.uri}
-                                        className="img-xs"
-                                        onClick={(event) => {
-                                            context.selectPokemonIngredients(dexEntry, IngredientLevel.Lvl0); 
-                                            event.stopPropagation();
-                                        }}
-                                    />
+                                    <HoverHighlight className="img-xs">
+                                        <img 
+                                            src={ingredients.find(i => i.name == dexEntry.ingredient_1)?.uri}
+                                            className="img-xs"
+                                            onClick={(event) => {
+                                                context.selectPokemonIngredients(dexEntry, IngredientLevel.Lvl0); 
+                                                event.stopPropagation();
+                                            }}
+                                        />
+                                    </HoverHighlight>
+                                    <HoverHighlight className="img-xs">
                                     <img 
                                         src={ingredients.find(i => i.name == dexEntry.ingredient_2)?.uri}
                                         className="img-xs"
@@ -105,6 +109,8 @@ export const TypeSelector = (props: {pokemon: Pokemon[], setPokemon: Dispatch<Se
                                             event.stopPropagation();
                                         }}
                                     />
+                                    </HoverHighlight>
+                                    <HoverHighlight className="img-xs">
                                     {dexEntry.ingredient_3 ?
                                         <img 
                                             src={ingredients.find(i => i.name == dexEntry.ingredient_3)?.uri}
@@ -117,6 +123,7 @@ export const TypeSelector = (props: {pokemon: Pokemon[], setPokemon: Dispatch<Se
                                         :
                                         <div className="img-xs"/>
                                     }
+                                    </HoverHighlight>
                                 </Row>
                             </div>
                         </Column>
