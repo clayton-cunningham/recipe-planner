@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import { berryTypes, pokedex, Pokemon, TypeGroup, typeGroups } from "../../../assets/resources";
+import { berryTypes, IngredientLevel, pokedex, Pokemon, TypeGroup, typeGroups } from "../../../assets/resources";
 import { Dropdown } from "../../generic/Dropdown";
 import { Row } from "../../generic/Row";
 import { formatIdForPng } from "../helpers";
@@ -7,7 +7,7 @@ import { AppContext } from "../../../App";
 import "./Selectors.less"
 import { PokemonSelector } from "./PokemonSelector";
 
-export const TypeSelector = (props: {pokemon: Pokemon[], setPokemon: Dispatch<SetStateAction<Pokemon[]>>, context: AppContext, excludeLevel60: boolean}) => {
+export const TypeSelector = (props: {setPokemon: Dispatch<SetStateAction<Pokemon[]>>, context: AppContext, excludeLevel60: boolean}) => {
 
     const {setPokemon, context, excludeLevel60} = props;
     const [titleImg, setTitleImg] = useState("");
@@ -52,6 +52,8 @@ export const TypeSelector = (props: {pokemon: Pokemon[], setPokemon: Dispatch<Se
                             context={context}
                             typeGroup={tG}
                             excludeLevel60={excludeLevel60}
+                            mainAction={(dexEntry: Pokemon) => context.togglePokemon(dexEntry)}
+                            ingredientAction={(dexEntry: Pokemon, ingredientLevel: IngredientLevel) => context.selectPokemonIngredients(dexEntry, ingredientLevel)}
                         />
                     )
                 })}

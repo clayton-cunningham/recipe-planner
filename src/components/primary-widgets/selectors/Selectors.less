@@ -1,4 +1,8 @@
 
+.selectors-header {
+    width: 100%;
+}
+
 .pokemon-selector {
     transition: .5s;
     border-style: solid;
@@ -52,4 +56,35 @@
 .pokemon-ingredients {
     position: relative;
     overflow: hidden;
+}
+
+.custom-selector {
+    justify-content: flex-end;
+    margin: 25px;
+}
+
+.custom-selector-window {
+    position: absolute;
+    background-color: black;
+    z-index: 1;
+    border: solid;
+    border-radius: 25px;
+    border-color: grey;
+    top: 5%;
+    max-width: 90%;
+
+    .selector-window-inner {
+        padding: 15px;
+    }
+}
+
+.custom-selector-window-open {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.custom-selector-window-open-img {
+    width: 55px;
+    height: 55px;
 }

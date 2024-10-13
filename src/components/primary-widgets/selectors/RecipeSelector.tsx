@@ -13,7 +13,7 @@ export const RecipeSelector = (props: {setWeeklyRecipe: Dispatch<SetStateAction<
     }, [title])
 
     return (
-        <div>
+        <div className="flex-1">
             <Dropdown
                 menuDisplay={
                     <Row>

@@ -1,5 +1,4 @@
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import { BoxEntry, IngredientLevel, ingredients, pokedex, TypeGroup } from "../../../assets/resources";
+import { BoxEntry, IngredientLevel, ingredients, pokedex, Pokemon, TypeGroup } from "../../../assets/resources";
 import { Row } from "../../generic/Row";
 import { formatIdForPng } from "../helpers";
 import { AppContext } from "../../../App";
@@ -7,10 +6,13 @@ import "./Selectors.less"
 import { Column } from "../../generic/Column";
 import { Pill } from "../../generic/Pill";
 import { HoverHighlight } from "../../generic/HoverHighlight";
+import { CloseButton } from "../../generic/CloseButton";
 
-export const PokemonSelector = (props: {typeGroup: TypeGroup, context: AppContext, excludeLevel60: boolean}) => {
+export const PokemonSelector = (props: 
+    {typeGroup: TypeGroup, context: AppContext, excludeLevel60: boolean, 
+        mainAction: (source: Pokemon) => void, ingredientAction: (source: Pokemon, lvl: IngredientLevel) => void, closeAction?: () => any}) => {
 
-    const {typeGroup, context, excludeLevel60} = props;
+    const {typeGroup, context, excludeLevel60, mainAction, ingredientAction, closeAction} = props;
     
     var dexEntry = pokedex.find(p => p.name == typeGroup.default)!;
     if (dexEntry == undefined) return null;
@@ -35,7 +37,7 @@ export const PokemonSelector = (props: {typeGroup: TypeGroup, context: AppContex
             key={typeGroup.key + "_berry_mon"} 
             className={"pokemon-selector " + (monState?.Perf ? "can-use" : "cant-use")}
         >
-            <div onClick={() => context.togglePokemon(dexEntry)}>
+            <div onClick={() => mainAction(dexEntry)}>
                 <div className="main-icon">
                     <img
                         src={dexEntry.portraitUri} 
@@ -56,6 +58,9 @@ export const PokemonSelector = (props: {typeGroup: TypeGroup, context: AppContex
                             )
                         })}
                     </Row>
+                    {closeAction &&
+                        <CloseButton action={closeAction}/>
+                    }
                 </div>
                 <Row className="pokemon-ingredients">
                     {dexEntry.ingredient_3 &&
@@ -67,7 +72,7 @@ export const PokemonSelector = (props: {typeGroup: TypeGroup, context: AppContex
                             src={ingredients.find(i => i.name == dexEntry.ingredient_1)?.uri}
                             className="img-xs"
                             onClick={(event) => {
-                                context.selectPokemonIngredients(dexEntry, IngredientLevel.Lvl0); 
+                                ingredientAction(dexEntry, IngredientLevel.Lvl0); 
                                 event.stopPropagation();
                             }}
                         />
@@ -77,7 +82,7 @@ export const PokemonSelector = (props: {typeGroup: TypeGroup, context: AppContex
                             src={ingredients.find(i => i.name == dexEntry.ingredient_2)?.uri}
                             className="img-xs"
                             onClick={(event) => {
-                                context.selectPokemonIngredients(dexEntry, IngredientLevel.Lvl30); 
+                                ingredientAction(dexEntry, IngredientLevel.Lvl30); 
                                 event.stopPropagation();
                             }}
                         />
@@ -88,7 +93,7 @@ export const PokemonSelector = (props: {typeGroup: TypeGroup, context: AppContex
                                 src={ingredients.find(i => i.name == dexEntry.ingredient_3)?.uri}
                                 className="img-xs"
                                 onClick={(event) => {
-                                    context.selectPokemonIngredients(dexEntry, IngredientLevel.Lvl60); 
+                                    ingredientAction(dexEntry, IngredientLevel.Lvl60);
                                     event.stopPropagation();
                                 }}
                             />

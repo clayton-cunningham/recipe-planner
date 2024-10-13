@@ -8,6 +8,7 @@ import { BoxEntry, IngredientLevel, Pokemon, pokemonBox } from './assets/resourc
 export type AppContext = {
   selectedPokemon: BoxEntry[],
   togglePokemon: (source: Pokemon) => void,
+  selectPokemon: (source: Pokemon) => void,
   selectPokemonIngredients: (source: Pokemon, lvl: IngredientLevel) => void,
 }
 
@@ -25,6 +26,19 @@ function App() {
       var oP = selectedPokemon;
       // Only toggle this mon being considered in calculations - the user shouldn't have to reselect everything later.
       oP[index].Perf = !oP[index].Perf;
+      setOwnedPokemon([...oP]);
+  }
+
+  const selectPokemon = (source: Pokemon) => {
+      const index = selectedPokemon.findIndex(oP => oP.id == source.id);
+      if (index == -1) {
+        throw new Error("Pokemon not found!");
+      }
+
+      // Update the stored value
+      var oP = selectedPokemon;
+      // Only toggle this mon being considered in calculations - the user shouldn't have to reselect everything later.
+      oP[index].Perf = true;
       setOwnedPokemon([...oP]);
   }
 
@@ -46,8 +60,8 @@ function App() {
   return (
     <>
       <Column>
-        <MainPage context={{selectedPokemon, togglePokemon, selectPokemonIngredients}}/>
-        <PokemonList context={{selectedPokemon, togglePokemon, selectPokemonIngredients}}/>
+        <MainPage context={{selectedPokemon, togglePokemon, selectPokemon, selectPokemonIngredients}}/>
+        <PokemonList context={{selectedPokemon, togglePokemon, selectPokemon, selectPokemonIngredients}}/>
       </Column>
     </>
   )

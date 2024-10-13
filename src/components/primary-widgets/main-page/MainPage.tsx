@@ -19,8 +19,8 @@ export const MainPage = (props: {context: AppContext}) => {
         <PageSection>
             <Column>
                 <Column className="selectors">
-                    <RecipeSelector setWeeklyRecipe={setWeeklyRecipe} />
                     <TypeSelectors 
+                        setWeeklyRecipe={setWeeklyRecipe}
                         setWeeklyPokemon={setWeeklyPokemon}
                         context={context}
                         excludeLevel60={excludeLevel60}
