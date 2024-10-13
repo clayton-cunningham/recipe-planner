@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { PageSection } from "../../generic/PageSection";
 import { Recipes } from "../recipe-options/Recipes";
-import { RecipeSelector } from "../selectors/RecipeSelector";
 import { TypeSelectors } from "../selectors/TypeSelectors";
 import { Pokemon } from "../../../assets/resources";
 import { AppContext } from "../../../App";

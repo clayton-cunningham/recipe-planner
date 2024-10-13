@@ -2,7 +2,6 @@ import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { berryTypes, IngredientLevel, pokedex, Pokemon, TypeGroup, typeGroups } from "../../../assets/resources";
 import { Dropdown } from "../../generic/Dropdown";
 import { Row } from "../../generic/Row";
-import { formatIdForPng } from "../helpers";
 import { AppContext } from "../../../App";
 import "./Selectors.less"
 import { PokemonSelector } from "./PokemonSelector";

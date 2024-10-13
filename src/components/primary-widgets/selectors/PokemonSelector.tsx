@@ -1,6 +1,5 @@
 import { BoxEntry, IngredientLevel, ingredients, pokedex, Pokemon, TypeGroup } from "../../../assets/resources";
 import { Row } from "../../generic/Row";
-import { formatIdForPng } from "../helpers";
 import { AppContext } from "../../../App";
 import "./Selectors.less"
 import { Column } from "../../generic/Column";

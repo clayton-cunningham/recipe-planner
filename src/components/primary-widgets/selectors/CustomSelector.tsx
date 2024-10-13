@@ -1,7 +1,6 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { IngredientLevel, pokedex, Pokemon, TypeGroup, typeGroups } from "../../../assets/resources";
 import { Row } from "../../generic/Row";
-import { formatIdForPng } from "../helpers";
 import { AppContext } from "../../../App";
 import "./Selectors.less"
 import { PokemonSelector } from "./PokemonSelector";

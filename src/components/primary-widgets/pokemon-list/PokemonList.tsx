@@ -2,8 +2,6 @@ import { pokedex } from "../../../assets/resources";
 import { Column } from "../../generic/Column";
 import { Row } from "../../generic/Row";
 import { PageSection } from "../../generic/PageSection";
-import { formatIdForPng } from "../helpers.tsx";
-// @ts-ignore
 import "./PokemonList.less"
 import { AppContext } from "../../../App.tsx";
 
