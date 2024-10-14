@@ -90,7 +90,7 @@ export const PokemonSelector = (props:
                         <HoverHighlight className="img-xs">
                             <img 
                                 src={ingredients.find(i => i.name == dexEntry.ingredient_3)?.uri}
-                                className={"img-xs" + (excludeLevel60 ? " fade" : "")}
+                                className={"img-xs" + (excludeLevel60 && monState?.ingredientLevel != IngredientLevel.Lvl60 ? " fade" : "")}
                                 onClick={(event) => {
                                     ingredientAction(dexEntry, IngredientLevel.Lvl60);
                                     event.stopPropagation();
