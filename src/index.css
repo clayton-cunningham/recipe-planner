@@ -47,7 +47,7 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
   
-  @media only screen and (max-width: 700px) {
+  @media only screen and (max-width: 900px) {
     padding: 0.6em;
   }
 }
@@ -75,7 +75,7 @@ button:focus-visible {
 p, h1, h2, h3, h4, h5, h6 {
   margin: 8px;
   
-  @media only screen and (max-width: 700px) {
+  @media only screen and (max-width: 900px) {
     margin: 2px;
     font-size: small;
   }
