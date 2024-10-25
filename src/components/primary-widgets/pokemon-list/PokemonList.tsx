@@ -4,7 +4,7 @@ import { Row } from "../../generic/Row";
 import { PageSection } from "../../generic/PageSection";
 import "./PokemonList.less"
 import { AppContext } from "../../../App.tsx";
-import { formatIdForPng } from "../helpers.tsx";
+import { formatIdForPng } from "../../../helpers/helpers.tsx";
 
 export const PokemonList = (props: {context: AppContext}) => {
 

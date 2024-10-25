@@ -267,11 +267,9 @@ export enum IngredientLevel {
 }
 
 export enum CacheState {
-  NotSelected = 0,
-  IngLvl0 = 1,
-  IngLvl30 = 2,
-  IngLvl60 = 3,
-  IngLvl30And60 = 4,
+  Selected = 1, // 001
+  IngLvl30 = 2, // 010
+  IngLvl60 = 4, // 100
 }
 
 export const pokemonBox : BoxEntry[] = [

@@ -6,7 +6,7 @@ import { Column } from "../../generic/Column";
 import { Pill } from "../../generic/Pill";
 import { HoverHighlight } from "../../generic/HoverHighlight";
 import { CloseButton } from "../../generic/CloseButton";
-import { formatIdForPng } from "../helpers";
+import { formatIdForPng } from "../../../helpers/helpers";
 
 export const PokemonSelector = (props: 
     {typeGroup: TypeGroup, context: AppContext, excludeLevel60: boolean, 
