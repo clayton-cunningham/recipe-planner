@@ -1,15 +1,23 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { Dropdown } from "../../generic/Dropdown";
 import { Row } from "../../generic/Row";
+import { getCookie } from "../../../helpers/cookieHelpers";
+
+const getTitleInit = () => {
+    const cookie = getCookie("r");
+    if (cookie.length > 0) return cookie
+    return "Select a Recipe Type";
+}
 
 export const RecipeSelector = (props: {setWeeklyRecipe: Dispatch<SetStateAction<string>>}) => {
 
     const {setWeeklyRecipe} = props;
     const [titleImg, setTitleImg] = useState("");
-    const [title, setTitle] = useState("Select a Recipe Type");
+    const [title, setTitle] = useState(getTitleInit());
 
     useEffect(() => {
         setWeeklyRecipe(title);
+        document.cookie = "r" + "=" + title;
     }, [title])
 
     return (

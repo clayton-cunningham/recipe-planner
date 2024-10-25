@@ -1,24 +1,27 @@
-import { Dispatch, SetStateAction } from "react";
 import { BoxEntry, pokemonBox } from "../assets/resources";
 
 export const cookieToBox = (pokemon: BoxEntry, cookieState: number) => {
+    var retPokemon: BoxEntry = {
+        DexNumber: pokemon.DexNumber,
+        Pokemon: pokemon.Pokemon,
+    }
     if (cookieState >= 4) {  // 100
       cookieState -= 4;
-      pokemon.ingredientLevel60 = true;
+      retPokemon.ingredientLevel60 = true;
     }
     if (cookieState >= 2) {  // 010
       cookieState -= 2;
-      pokemon.ingredientLevel30 = true;
+      retPokemon.ingredientLevel30 = true;
     }
     if (cookieState >= 1) {  // 001
       cookieState -= 1;
-      pokemon.Perf = true;
+      retPokemon.Perf = true;
     }
-    return pokemon;
+    return retPokemon;
 }
 
-export const getCookie = (setSelectedPokemon: Dispatch<SetStateAction<BoxEntry[]>>) => {
-    var cookie = document.cookie;
+export const getBoxCookie = () => {
+    var cookie = getCookie("pokemon");
 
     var cookies = cookie.split(",");
 
@@ -28,7 +31,8 @@ export const getCookie = (setSelectedPokemon: Dispatch<SetStateAction<BoxEntry[]
       return cookieToBox(p, +currCookie);
     })
 
-    setSelectedPokemon(cookiePokemon);
+    // setSelectedPokemon(cookiePokemon);
+    return cookiePokemon;
 }
 
 export const boxToCookie = (pokemon: BoxEntry) => {
@@ -39,8 +43,15 @@ export const boxToCookie = (pokemon: BoxEntry) => {
     return cookieState;
 }
 
-export const setCookie = (selectedPokemon: BoxEntry[]) => {
+export const setBoxCookie = (selectedPokemon: BoxEntry[]) => {
     var cookie = selectedPokemon.map(p => p.DexNumber + "#" + boxToCookie(p)).join(',');
 
     document.cookie = "pokemon=" + cookie;
+}
+
+export const getCookie = (name: string) => {
+    const cookie = "; " + document.cookie;
+    const parts = cookie.split("; " + name + "=");
+    if (parts.length == 2) return parts.pop()!.split(";").shift()!;
+    else return "";
 }

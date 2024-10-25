@@ -27,9 +27,9 @@ export const TypeSelectors = (props: {setWeeklyRecipe: Dispatch<SetStateAction<s
                 <CustomSelector setPokemon={setCustomPokemon} context={context} excludeLevel60={excludeLevel60}/>
             </Row>
             <Row className="type-selectors">
-                <TypeSelector setPokemon={setPokemon1} context={context} excludeLevel60={excludeLevel60} />
-                <TypeSelector setPokemon={setPokemon2} context={context} excludeLevel60={excludeLevel60} />
-                <TypeSelector setPokemon={setPokemon3} context={context} excludeLevel60={excludeLevel60} />
+                <TypeSelector id="1" setPokemon={setPokemon1} context={context} excludeLevel60={excludeLevel60} />
+                <TypeSelector id="2" setPokemon={setPokemon2} context={context} excludeLevel60={excludeLevel60} />
+                <TypeSelector id="3" setPokemon={setPokemon3} context={context} excludeLevel60={excludeLevel60} />
             </Row>
         </Column>
     )

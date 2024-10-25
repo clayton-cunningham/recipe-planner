@@ -6,12 +6,19 @@ import { AppContext } from "../../../App";
 import "./Selectors.less"
 import { PokemonSelector } from "./PokemonSelector";
 import { RowColumnAdaptive } from "../../generic/RowColumnAdaptive";
+import { getCookie } from "../../../helpers/cookieHelpers";
 
-export const TypeSelector = (props: {setPokemon: Dispatch<SetStateAction<Pokemon[]>>, context: AppContext, excludeLevel60: boolean}) => {
+const getTitleInit = (id: string) => {
+    const cookie = getCookie("t" + id);
+    if (cookie.length > 0) return cookie
+    return "Select a Berry";
+}
 
-    const {setPokemon, context, excludeLevel60} = props;
+export const TypeSelector = (props: {id: string, setPokemon: Dispatch<SetStateAction<Pokemon[]>>, context: AppContext, excludeLevel60: boolean}) => {
+
+    const {id, setPokemon, context, excludeLevel60} = props;
     const [titleImg, setTitleImg] = useState("");
-    const [title, setTitle] = useState("Select a Berry");
+    const [title, setTitle] = useState(getTitleInit(id));
     const [activeTypeGroups, setActiveTypeGroups] = useState<TypeGroup[]>([]);
 
     useEffect(() => {
@@ -19,6 +26,7 @@ export const TypeSelector = (props: {setPokemon: Dispatch<SetStateAction<Pokemon
         var pokemon = pokedex.filter(p => p.berry == title).filter(p => typeGroupSubsets.find(tGS => tGS.default == p.name) != undefined);
         setPokemon(pokemon);
         setActiveTypeGroups(typeGroupSubsets);
+        document.cookie = "t" + id + "=" + title;
     }, [title])
 
     return (

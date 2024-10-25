@@ -3,7 +3,7 @@ import './App.css'
 import { Column } from './components/generic/Column'
 import { MainPage } from './components/primary-widgets/main-page/MainPage'
 import { BoxEntry, IngredientLevel, Pokemon, pokemonBox } from './assets/resources';
-import { getCookie, setCookie } from './helpers/cookieHelpers';
+import { getBoxCookie, setBoxCookie } from './helpers/cookieHelpers';
 
 export type AppContext = {
   selectedPokemon: BoxEntry[],
@@ -12,16 +12,19 @@ export type AppContext = {
   selectPokemonIngredients: (source: Pokemon, lvl: IngredientLevel) => void,
 }
 
+const getBoxInit = () => {
+  const cookie = getBoxCookie();
+  console.log(cookie)
+  if (cookie.length > 0) return cookie
+  return pokemonBox;
+}
+
 function App() {
 
-  const [selectedPokemon, setSelectedPokemon] = useState<BoxEntry[]>(pokemonBox);
+  const [selectedPokemon, setSelectedPokemon] = useState<BoxEntry[]>(getBoxInit());
 
   useEffect(() => {
-    getCookie(setSelectedPokemon);
-  }, [])
-
-  useEffect(() => {
-    setCookie(selectedPokemon);
+    setBoxCookie(selectedPokemon);
   }, [selectedPokemon])
 
   const togglePokemon = (source: Pokemon) => {
