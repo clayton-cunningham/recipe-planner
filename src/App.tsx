@@ -52,7 +52,9 @@ function App() {
 
       // Make sure this selection is now considered too - saves an extra click for the user.
       oP[index].Perf = true;
-      oP[index].ingredientLevel = lvl;
+      if      (lvl == IngredientLevel.Lvl0)  { oP[index].ingredientLevel30 = false; oP[index].ingredientLevel60 = false;}
+      else if (lvl == IngredientLevel.Lvl30) { oP[index].ingredientLevel30 = !oP[index].ingredientLevel30}
+      else if (lvl == IngredientLevel.Lvl60) { oP[index].ingredientLevel60 = !oP[index].ingredientLevel60;}
       setOwnedPokemon([...oP]);
   }
 

@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import { BoxEntry, IngredientLevel, ingredients, Pokemon, Recipe, RecipePossibility, recipes } from "../../../assets/resources";
+import { BoxEntry, ingredients, Pokemon, Recipe, RecipePossibility, recipes } from "../../../assets/resources";
 import "./Recipes.less";
 import { RecipeOptions } from "./RecipeOptions"
 import { Row } from "../../generic/Row";
@@ -23,8 +23,8 @@ export const Recipes = (props: {weeklyPokemon: Pokemon[], weeklyRecipe: string, 
         // Get ingredients possible with selected pokemon & ingredent levels
         var possibleIngredients = selectedDexEntries
             .map(p => p.ingredient_1)
-            .concat(selectedDexEntries.filter(p => selectedPokemon.find(oP => oP.id == p.id && oP.Perf && (oP.ingredientLevel == IngredientLevel.Lvl30 || oP.ingredientLevel == IngredientLevel.Lvl60)) != undefined).map(p => p.ingredient_2))
-            .concat(selectedDexEntries.filter(p => selectedPokemon.find(oP => oP.id == p.id && oP.Perf && oP.ingredientLevel == IngredientLevel.Lvl60) != undefined).map(p => p.ingredient_3));
+            .concat(selectedDexEntries.filter(p => selectedPokemon.find(oP => oP.id == p.id && oP.Perf && (oP.ingredientLevel30)) != undefined).map(p => p.ingredient_2))
+            .concat(selectedDexEntries.filter(p => selectedPokemon.find(oP => oP.id == p.id && oP.Perf && oP.ingredientLevel60) != undefined).map(p => p.ingredient_3));
         
         // Get ingredients possible with higher levels on selected pokemon
         var higherLvlIngredients = selectedDexEntries.map(p => p.ingredient_2);

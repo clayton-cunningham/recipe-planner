@@ -251,7 +251,8 @@ export type BoxEntry = {
   id: string,
   Owned: boolean,
   Perf: boolean,
-  ingredientLevel?: IngredientLevel,
+  ingredientLevel30?: boolean,
+  ingredientLevel60?: boolean,
   Pokemon: string,
 }
 

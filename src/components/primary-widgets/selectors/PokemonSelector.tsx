@@ -18,17 +18,14 @@ export const PokemonSelector = (props:
 
     var monState = context.selectedPokemon.find(oP => oP.id == dexEntry.id);
 
-    const getIngredientPillState = (monState: BoxEntry | undefined) => {
-        // We can have deactivated entries with filled in data, so we have to check both fields for 30 & 60.
-        if (monState?.Perf && monState?.ingredientLevel == IngredientLevel.Lvl60) return "left-3";
-        if (monState?.Perf && monState?.ingredientLevel == IngredientLevel.Lvl30) return "left-2";
-        if (monState?.Perf) return "left-1";
-        else return "left-0"
+    const getIngredientPillState = (monState: BoxEntry | undefined, hasIngredient: boolean | undefined) => {
+        if (monState?.Perf && hasIngredient) return "down-1";
+        else return "down-0"
     }
 
-    const getExludePillState = (excludeLevel60: boolean) => {
-        if (excludeLevel60) return "right-1";
-        else return "right-0"
+    const getExcludePillState = (excludeLevel60: boolean) => {
+        if (excludeLevel60) return "down-1";
+        else return "down-0"
     }
 
     return (
@@ -62,21 +59,20 @@ export const PokemonSelector = (props:
                     }
                 </div>
                 <Row className="pokemon-ingredients">
-                    {dexEntry.ingredient_3 &&
-                        <Pill className={"grey " + getExludePillState(excludeLevel60)} />
-                    }
-                    <Pill className={"green " + getIngredientPillState(monState)} />
                     <HoverHighlight className="img-xs">
+                        <Pill vertical={true} className={"green " + getIngredientPillState(monState, true)} />
                         <img 
                             src={ingredients.find(i => i.name == dexEntry.ingredient_1)?.uri}
                             className="img-xs"
                             onClick={(event) => {
-                                ingredientAction(dexEntry, IngredientLevel.Lvl0); 
+                                // TODO: decide if we want clicking the first ingredient to remove the others (maybe long click?)
+                                // ingredientAction(dexEntry, IngredientLevel.Lvl0); 
                                 event.stopPropagation();
                             }}
                         />
                     </HoverHighlight>
                     <HoverHighlight className="img-xs">
+                        <Pill vertical={true} className={"green " + getIngredientPillState(monState, monState?.ingredientLevel30)} />
                         <img 
                             src={ingredients.find(i => i.name == dexEntry.ingredient_2)?.uri}
                             className="img-xs"
@@ -88,9 +84,11 @@ export const PokemonSelector = (props:
                     </HoverHighlight>
                     {dexEntry.ingredient_3 ?
                         <HoverHighlight className="img-xs">
+                            <Pill vertical={true} className={"grey " + getExcludePillState(excludeLevel60)} />
+                            <Pill vertical={true} className={"green " + getIngredientPillState(monState, monState?.ingredientLevel60)} />
                             <img 
                                 src={ingredients.find(i => i.name == dexEntry.ingredient_3)?.uri}
-                                className={"img-xs" + (excludeLevel60 && (!monState?.Perf || monState?.ingredientLevel != IngredientLevel.Lvl60) ? " fade" : "")}
+                                className={"img-xs" + (excludeLevel60 && (!monState?.Perf || !monState?.ingredientLevel60) ? " fade" : "")}
                                 onClick={(event) => {
                                     ingredientAction(dexEntry, IngredientLevel.Lvl60);
                                     event.stopPropagation();
