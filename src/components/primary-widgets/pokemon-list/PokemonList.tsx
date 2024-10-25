@@ -4,6 +4,7 @@ import { Row } from "../../generic/Row";
 import { PageSection } from "../../generic/PageSection";
 import "./PokemonList.less"
 import { AppContext } from "../../../App.tsx";
+import { formatIdForPng } from "../helpers.tsx";
 
 export const PokemonList = (props: {context: AppContext}) => {
 
@@ -15,16 +16,15 @@ export const PokemonList = (props: {context: AppContext}) => {
                 <Column>
                     {pokedex.map(mon => {
                         
-                        var monState = selectedPokemon.find(oP => oP.id == mon.id)
+                        var monState = selectedPokemon.find(oP => oP.DexNumber == mon.dexNumber)
 
                         return (
-                            <div key={mon.id + "_Pokemon"} onClick={() => togglePokemon(mon)}>
+                            <div key={mon.dexNumber + "_Pokemon"} onClick={() => togglePokemon(mon)}>
                                 <Row>
                                     <input type="checkbox" checked={monState?.Perf} onChange={() => {}} />
                                     {/* <input type="checkbox" onChange={() => togglePokemon(mon)} checked={monState?.Perf} /> */}
                                     {/* <button onClick={() => togglePokemon(mon)}>{monState?.Perf + ""}</button> */}
-                                    <img src={mon.portraitUri} />
-                                    {/* <img src={formatIdForPng(mon.id)} /> */}
+                                    <img src={formatIdForPng(mon.dexNumber)} />
                                     <p>{mon.name}</p>
                                     <button>
                                         <p>{mon.ingredient_1}</p>

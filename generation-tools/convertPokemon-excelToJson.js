@@ -1,7 +1,7 @@
 const { getPokemon } = require("./excelToJson");
 
 const keys = [
-    "id",
+    "dexNumber",
     "name",
     "berry",
     "ingredient_1",
@@ -10,12 +10,12 @@ const keys = [
 ]
 
 const keyIndexes = [
-    0,
-    3,
-    8,
+    1,
+    4,
     9,
     10,
     11,
+    12,
 ]
 
 getPokemon("pokedex", keys, keyIndexes);

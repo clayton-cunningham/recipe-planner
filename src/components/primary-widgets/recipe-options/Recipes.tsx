@@ -18,13 +18,13 @@ export const Recipes = (props: {weeklyPokemon: Pokemon[], weeklyRecipe: string, 
     const [column4Ingredients, setColumn4Ingredients] = useState<string[]>([]);
 
     useEffect(() => {
-        const selectedDexEntries = weeklyPokemon.filter(tP => selectedPokemon.find(oP => oP.id == tP.id && oP.Perf) != undefined);
+        const selectedDexEntries = weeklyPokemon.filter(tP => selectedPokemon.find(oP => oP.DexNumber == tP.dexNumber && oP.Perf) != undefined);
 
         // Get ingredients possible with selected pokemon & ingredent levels
         var possibleIngredients = selectedDexEntries
             .map(p => p.ingredient_1)
-            .concat(selectedDexEntries.filter(p => selectedPokemon.find(oP => oP.id == p.id && oP.Perf && (oP.ingredientLevel30)) != undefined).map(p => p.ingredient_2))
-            .concat(selectedDexEntries.filter(p => selectedPokemon.find(oP => oP.id == p.id && oP.Perf && oP.ingredientLevel60) != undefined).map(p => p.ingredient_3));
+            .concat(selectedDexEntries.filter(p => selectedPokemon.find(oP => oP.DexNumber == p.dexNumber && oP.Perf && (oP.ingredientLevel30)) != undefined).map(p => p.ingredient_2))
+            .concat(selectedDexEntries.filter(p => selectedPokemon.find(oP => oP.DexNumber == p.dexNumber && oP.Perf && oP.ingredientLevel60) != undefined).map(p => p.ingredient_3));
         
         // Get ingredients possible with higher levels on selected pokemon
         var higherLvlIngredients = selectedDexEntries.map(p => p.ingredient_2);
@@ -32,7 +32,7 @@ export const Recipes = (props: {weeklyPokemon: Pokemon[], weeklyRecipe: string, 
         higherLvlIngredients = higherLvlIngredients.filter(i => !possibleIngredients.includes(i));
 
         // Get ingredients possible with other pokemon for the week's favorite berries
-        const nonSelectedDexEntries = weeklyPokemon.filter(tP => selectedPokemon.find(oP => oP.id == tP.id) != undefined);
+        const nonSelectedDexEntries = weeklyPokemon.filter(tP => selectedPokemon.find(oP => oP.DexNumber == tP.dexNumber) != undefined);
         var otherMonIngredients = nonSelectedDexEntries.map(p => p.ingredient_1).concat(nonSelectedDexEntries.map(p => p.ingredient_2));
         if (!excludeLevel60) otherMonIngredients = otherMonIngredients.concat(nonSelectedDexEntries.map(p => p.ingredient_3));
         otherMonIngredients = otherMonIngredients.filter(i => !possibleIngredients.includes(i) && !higherLvlIngredients.includes(i));

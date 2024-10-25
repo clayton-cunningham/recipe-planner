@@ -1,145 +1,154 @@
-id,Owned,Perf,Pokemon
-1,TRUE,TRUE,Bulbasaur
-2,FALSE,FALSE,Ivysaur
-3,FALSE,FALSE,Venusaur
-4,TRUE,TRUE,Charmander
-5,FALSE,FALSE,Charmeleon
-6,FALSE,FALSE,Charizard
-7,TRUE,TRUE,Squirtle
-8,TRUE,TRUE,Wartortle
-9,FALSE,FALSE,Blastoise
-10,TRUE,TRUE,Caterpie
-11,FALSE,FALSE,Metapod
-12,FALSE,FALSE,Butterfree
-13,TRUE,FALSE,Rattata
-14,FALSE,FALSE,Raticate
-15,TRUE,TRUE,Ekans
-16,FALSE,FALSE,Arbok
-17,TRUE,FALSE,Pichu
-18,TRUE,FALSE,Pikachu
-19,FALSE,FALSE,Raichu
-20,TRUE,TRUE,Cleffa
-21,FALSE,FALSE,Clefairy
-22,FALSE,FALSE,Clefable
-23,TRUE,FALSE,Vulpix
-24,FALSE,FALSE,Ninetails
-25,TRUE,TRUE,Igglybuff
-26,TRUE,TRUE,Jigglypuff
-27,FALSE,FALSE,Wigglytuff
-28,TRUE,TRUE,Diglett
-29,FALSE,FALSE,Dugtrio
-30,TRUE,FALSE,Meowth
-31,FALSE,FALSE,Persian
-32,TRUE,TRUE,Psyduck
-33,FALSE,FALSE,Golduck
-34,TRUE,TRUE,Mankey
-35,FALSE,FALSE,Primeape
-36,TRUE,TRUE,Growlithe
-37,TRUE,TRUE,Arcanine
-38,TRUE,TRUE,Bellsprout
-39,FALSE,FALSE,Weepinbell
-40,FALSE,FALSE,Victreebel
-41,TRUE,TRUE,Geodude
-42,TRUE,FALSE,Graveler
-43,FALSE,FALSE,Golem
-44,TRUE,TRUE,Slowpoke
-45,FALSE,FALSE,Slowbro
-46,FALSE,FALSE,Slowking
-47,TRUE,FALSE,Magnemite
-48,FALSE,FALSE,Magneton
-49,FALSE,FALSE,Magnezone
-50,TRUE,FALSE,Doduo
-51,FALSE,FALSE,Dodrio
-52,TRUE,FALSE,Gastly
-53,FALSE,FALSE,Haunter
-54,FALSE,FALSE,Gengar
-55,FALSE,FALSE,Onix
-56,FALSE,FALSE,Steelix
-57,TRUE,TRUE,Cubone
-58,FALSE,FALSE,Marowak
-59,FALSE,FALSE,Kangaskhan
-60,TRUE,FALSE,Mime Jr.
-61,FALSE,FALSE,Mr. Mime
-62,TRUE,FALSE,Pinsir
-63,TRUE,FALSE,Ditto
-64,TRUE,FALSE,Eevee
-65,FALSE,FALSE,Vaporeon
-66,FALSE,FALSE,Jolteon
-67,FALSE,FALSE,Flareon
-68,FALSE,FALSE,Espeon
-69,FALSE,FALSE,Umbreon
-70,FALSE,FALSE,Leafeon
-71,FALSE,FALSE,Glaceon
-72,FALSE,FALSE,Sylveon
-73,FALSE,FALSE,Dratini
-74,FALSE,FALSE,Dragonair
-75,FALSE,FALSE,Dragonite
-76,TRUE,TRUE,Chikorita
-77,TRUE,TRUE,Bayleef
-78,FALSE,FALSE,Meganium
-79,TRUE,FALSE,Cyndaquil
-80,FALSE,FALSE,Quilava
-81,FALSE,FALSE,Typhlosion
-82,TRUE,TRUE,Totodile
-83,FALSE,FALSE,Croconaw
-84,FALSE,FALSE,Feraligatr
-85,TRUE,TRUE,Togepi
-86,FALSE,FALSE,Togetic
-87,FALSE,FALSE,Togekiss
-88,TRUE,TRUE,Mareep
-89,FALSE,FALSE,Flaaffy
-90,FALSE,FALSE,Ampharos
-91,TRUE,FALSE,Bonsly
-92,FALSE,FALSE,Sudowoodo
-93,TRUE,TRUE,Wooper
-94,FALSE,FALSE,Quagsire
-95,TRUE,TRUE,Wynaut
-96,TRUE,FALSE,Wobbuffet
-97,TRUE,FALSE,Heracross
-98,TRUE,FALSE,Delibird
-99,TRUE,FALSE,Houndour
-100,FALSE,FALSE,Houndoom
-101,TRUE,TRUE,Raiku
-102,TRUE,TRUE,Entei
-103,FALSE,FALSE,Suicune
-104,TRUE,FALSE,Larvitar
-105,FALSE,FALSE,Pupitar
-106,FALSE,FALSE,Tyranitar
-107,FALSE,FALSE,Ralts
-108,FALSE,FALSE,Kirlia
-109,FALSE,FALSE,Gardevoir
-110,FALSE,FALSE,Gallade
-111,TRUE,FALSE,Slakoth
-112,FALSE,FALSE,Vigoroth
-113,FALSE,FALSE,Slaking
-114,FALSE,FALSE,Sableye
-115,TRUE,FALSE,Gulpin
-116,FALSE,FALSE,Swalot
-117,TRUE,TRUE,Swablu
-118,FALSE,FALSE,Altaria
-119,TRUE,FALSE,Shuppet
-120,FALSE,FALSE,Banette
-121,FALSE,FALSE,Absol
-122,TRUE,TRUE,Spheal
-123,FALSE,FALSE,Sealeo
-124,FALSE,FALSE,Walrein
-125,TRUE,FALSE,Riolu
-126,FALSE,FALSE,Lucario
-127,TRUE,FALSE,Croagunk
-128,FALSE,FALSE,Toxicroak
-129,TRUE,TRUE,Snover
-130,FALSE,FALSE,Abomasnow
-131,TRUE,FALSE,Dedenne
-132,FALSE,FALSE,Stufful
-133,FALSE,FALSE,Bewear
-134,TRUE,TRUE,Comfey
-135,FALSE,FALSE,Cramorant
-136,TRUE,FALSE,Sprigatito
-137,FALSE,FALSE,Floragato
-138,FALSE,FALSE,Meowscarada
-139,TRUE,TRUE,Fuecoco
-140,FALSE,FALSE,Crocalor
-141,FALSE,FALSE,Skeledirge
-142,TRUE,TRUE,Quaxly
-143,FALSE,FALSE,Quaxwell
-144,FALSE,FALSE,Quaquaval
+ID,Dex,Owned,Perf,Pokemon,# Evolutions,Evolution State,Specialty,Main Skill,Berry,Ingredient 1,Ingredient 2,Ingredient 3,,Ing. Avg 30,Ing. Avg 60,Freq. (Min),Inv. Size,Tier
+1,1,TRUE,TRUE,Bulbasaur,3,1,Ingredients,Ingredient Magnet S,Durin,Honey,Tomato,Potato,FALSE,337,472,73,11,C+
+2,2,FALSE,FALSE,Ivysaur,3,2,Ingredients,Ingredient Magnet S,Durin,Honey,Tomato,Potato,FALSE,337,472,55,14,B
+3,3,FALSE,FALSE,Venusaur,3,3,Ingredients,Ingredient Magnet S,Durin,Honey,Tomato,Potato,FALSE,337,472,47,17,A-
+4,4,TRUE,TRUE,Charmander,3,1,Ingredients,Ingredient Magnet S,Leppa,Sausage,Ginger,Herb,FALSE,341,479,58,12,B-
+5,5,FALSE,FALSE,Charmeleon,3,2,Ingredients,Ingredient Magnet S,Leppa,Sausage,Ginger,Herb,FALSE,341,479,50,15,B+
+6,6,FALSE,FALSE,Charizard,3,3,Ingredients,Ingredient Magnet S,Leppa,Sausage,Ginger,Herb,FALSE,341,479,40,19,A+
+7,7,TRUE,TRUE,Squirtle,3,1,Ingredients,Ingredient Magnet S,Oran,Milk,Cacao,Sausage,TRUE,334,463,75,10,C+
+8,8,TRUE,TRUE,Wartortle,3,2,Ingredients,Ingredient Magnet S,Oran,Milk,Cacao,Sausage,TRUE,334,463,57,14,B
+9,9,FALSE,FALSE,Blastoise,3,3,Ingredients,Ingredient Magnet S,Oran,Milk,Cacao,Sausage,FALSE,334,463,47,17,A-
+10,10,TRUE,TRUE,Caterpie,3,1,Berries,Ingredient Magnet S,Lum,Honey,Tomato,Soybeans,FALSE,156,230,73,11,C+
+11,11,FALSE,FALSE,Metapod,3,2,Berries,Ingredient Magnet S,Lum,Honey,Tomato,Soybeans,FALSE,156,230,70,13,B-
+12,12,FALSE,FALSE,Butterfree,3,3,Berries,Ingredient Magnet S,Lum,Honey,Tomato,Soybeans,FALSE,156,230,43,21,S-
+13,19,TRUE,FALSE,Rattata,2,1,Berries,Charge Energy  S,Persim,Apple,Soybeans,Sausage,FALSE,140,201,82,10,C
+14,20,FALSE,FALSE,Raticate,2,2,Berries,Charge Energy  S,Persim,Apple,Soybeans,Sausage,FALSE,140,201,53,16,A-
+15,23,TRUE,TRUE,Ekans,2,1,Berries,Charge Energy S,Chesto,Sausage,Egg,Herb,FALSE,161,234,83,10,C
+16,24,FALSE,FALSE,Arbok,2,2,Berries,Charge Energy S,Chesto,Sausage,Egg,Herb,FALSE,161,234,62,14,B
+17,172,TRUE,FALSE,Pichu,3,1,Berries,Charge Strength S,Grepa,Apple,Ginger,Egg,FALSE,145,211,72,10,C+
+18,25,TRUE,FALSE,Pikachu,3,2,Berries,Charge Strength S,Grepa,Apple,Ginger,Egg,FALSE,145,211,45,17,A
+19,26,FALSE,FALSE,Raichu,3,3,Berries,Charge Strength S,Grepa,Apple,Ginger,Egg,FALSE,145,211,37,21,S+
+20,173,TRUE,TRUE,Cleffa,3,1,Berries,Metronome,Pecha,Apple,Honey,Soybeans,FALSE,141,201,93,10,C-
+21,35,FALSE,FALSE,Clefairy,3,2,Berries,Metronome,Pecha,Apple,Honey,Soybeans,FALSE,141,201,67,16,B-
+22,36,FALSE,FALSE,Clefable,3,3,Berries,Metronome,Pecha,Apple,Honey,Soybeans,FALSE,141,201,47,24,A
+23,37,TRUE,FALSE,Vulpix,2,1,Berries,Energizing Cheer S,Leppa,Soybeans,Corn,Potato,FALSE,,,,,
+24,38,FALSE,FALSE,Ninetails,2,2,Berries,Energizing Cheer S,Leppa,Soybeans,Corn,Potato,FALSE,,,,,
+25,174,TRUE,TRUE,Igglybuff,3,1,Skills,Energy for Everyone S,Pecha,Honey,Oil,Cacao,FALSE,162,226,87,8,C-
+26,39,TRUE,TRUE,Jigglypuff,3,2,Skills,Energy for Everyone S,Pecha,Honey,Oil,Cacao,FALSE,162,226,65,9,B-
+27,20,FALSE,FALSE,Wigglytuff,3,3,Skills,Energy for Everyone S,Pecha,Honey,Oil,Cacao,FALSE,162,226,48,13,S
+28,50,TRUE,TRUE,Diglett,2,1,Ingredients,Charge Strength S,Figy,Tomato,Leek,Soybeans,FALSE,386,514,72,10,C+
+29,51,FALSE,FALSE,Dugtrio,2,2,Ingredients,Charge Strength S,Figy,Tomato,Leek,Soybeans,FALSE,386,514,47,16,A
+30,52,TRUE,FALSE,Meowth,2,1,Skills,Dream Shard Magnet S,Persim,Milk,Sausage,,FALSE,150,217,73,9,F
+31,53,FALSE,FALSE,Persian,2,2,Skills,Dream Shard Magnet S,Persim,Milk,Sausage,,FALSE,150,217,50,12,B
+32,54,TRUE,TRUE,Psyduck,2,1,Skills,Charge Strength S - Var,Oran,Cacao,Apple,Sausage,TRUE,241,345,90,8,F
+33,55,FALSE,FALSE,Golduck,2,2,Skills,Charge Strength S - Var,Oran,Cacao,Apple,Sausage,FALSE,241,345,57,11,B
+34,56,TRUE,TRUE,Mankey,2,1,Berries,Charge Strength S - Var,Cheri,Sausage,Mushroom,Honey,FALSE,145,224,70,12,B-
+35,57,FALSE,FALSE,Primeape,2,2,Berries,Charge Strength S - Var,Cheri,Sausage,Mushroom,Honey,FALSE,145,224,47,17,A
+36,58,TRUE,TRUE,Growlithe,2,1,Skills,Extra Helpful S,Leppa,Herb,Sausage,Milk,FALSE,207,308,72,8,C
+37,59,TRUE,TRUE,Arcanine,2,2,Skills,Extra Helpful S,Leppa,Herb,Sausage,Milk,FALSE,207,308,42,16,A
+38,69,TRUE,TRUE,Bellsprout,3,1,Ingredients,Charge Energy S,Durin,Tomato,Potato,Leek,FALSE,372,498,87,8,C-
+39,70,FALSE,FALSE,Weepinbell,3,2,Ingredients,Charge Energy S,Durin,Tomato,Potato,Leek,FALSE,372,498,63,12,B-
+40,71,FALSE,FALSE,Victreebel,3,3,Ingredients,Charge Energy S,Durin,Tomato,Potato,Leek,FALSE,372,498,47,17,A
+41,74,TRUE,TRUE,Geodude,3,1,Ingredients,Charge Strength S - Var,Sitrus,Soybeans,Potato,Mushroom,FALSE,349,467,95,9,F
+42,75,TRUE,FALSE,Graveler,3,2,Ingredients,Charge Strength S - Var,Sitrus,Soybeans,Potato,Mushroom,FALSE,349,467,67,12,B-
+43,76,FALSE,FALSE,Golem,3,3,Ingredients,Charge Strength S - Var,Sitrus,Soybeans,Potato,Mushroom,FALSE,349,467,52,16,B+
+44,79,TRUE,TRUE,Slowpoke,2,1,Skills,Energizing Cheer S,Oran,Cacao,Tail,Tomato,FALSE,237,362,95,9,F
+45,80,FALSE,FALSE,Slowbro,2,2,Skills,Energizing Cheer S,Oran,Cacao,Tail,Tomato,FALSE,237,362,63,10,B+
+46,199,FALSE,FALSE,Slowking,2,2,Skills,Energizing Cheer S,Oran,Cacao,Tail,Tomato,FALSE,237,362,57,11,A-
+47,81,TRUE,FALSE,Magnemite,3,1,Skills,Cooking Power-Up S,Belue,Oil,Herb,,FALSE,186,270,97,8,F
+48,82,FALSE,FALSE,Magneton,3,2,Skills,Cooking Power-Up S,Belue,Oil,Herb,,FALSE,186,270,67,11,B-
+49,462,FALSE,FALSE,Magnezone,3,3,Skills,Cooking Power-Up S,Belue,Oil,Herb,,FALSE,186,270,52,13,A
+50,84,TRUE,FALSE,Doduo,2,1,Berries,Charge Energy S,Pamtre,Soybeans,Cacao,Sausage,FALSE,138,204,63,13,B
+51,85,FALSE,FALSE,Dodrio,2,2,Berries,Charge Energy S,Pamtre,Soybeans,Cacao,Sausage,FALSE,138,204,40,21,S+
+52,92,TRUE,FALSE,Gastly,3,1,Ingredients,Charge Strength S,Bluk,Herb,Mushroom,Oil,FALSE,460,626,63,10,B
+53,93,FALSE,FALSE,Haunter,3,2,Ingredients,Charge Strength S,Bluk,Herb,Mushroom,Oil,FALSE,460,626,50,14,A
+54,94,FALSE,FALSE,Gengar,3,3,Ingredients,Charge Strength S,Bluk,Herb,Mushroom,Oil,FALSE,460,626,37,18,S+
+55,95,FALSE,FALSE,Onix,2,1,Berries,Ingredient Magnet S,Sitrus,Tomato,Sausage,Potato,FALSE,161.5,243.7,52,22,A-
+56,208,FALSE,FALSE,Steelix,2,2,Berries,Ingredient Magnet S,Belue,Tomato,Sausage,Potato,FALSE,161.5,243.7,50,25,A
+57,104,TRUE,TRUE,Cubone,2,1,Berries,Charge Energy S,Figy,Ginger,Cacao,,FALSE,185,271,80,10,C
+58,105,FALSE,FALSE,Marowak,2,2,Berries,Charge Energy S,Figy,Ginger,Cacao,,FALSE,185,271,58,15,B+
+59,115,FALSE,FALSE,Kangaskhan,1,1,Ingredients,Ingredient Magnet S,Persim,Ginger,Potato,Soybeans,FALSE,369,503,47,16,A-
+60,439,TRUE,FALSE,Mime Jr.,2,1,Ingredients,Charge Strength S,Mago,Tomato,Potato,Leek,FALSE,372,498,72,10,C+
+61,122,FALSE,FALSE,Mr. Mime,2,2,Ingredients,Charge Strength S,Mago,Tomato,Potato,Leek,FALSE,372,498,47,17,A
+62,127,TRUE,FALSE,Pinsir,1,1,Ingredients,Charge Strength S,Lum,Honey,Apple,Sausage,FALSE,340,465,40,19,A
+63,132,TRUE,FALSE,Ditto,1,1,Ingredients,Charge Strength S,Persim,Oil,Leek,Tail,FALSE,411,585,58,13,A
+64,133,TRUE,FALSE,Eevee,2,1,Skills,Ingredient Magnet S,Persim,Milk,Cacao,Sausage,FALSE,136,202,62,12,C
+65,134,FALSE,FALSE,Vaporeon,2,2,Skills,Ingredient Magnet S,Oran,Milk,Cacao,Sausage,FALSE,136,202,52,13,B
+66,135,FALSE,FALSE,Jolteon,2,2,Skills,Extra Helpful S,Grepa,Milk,Cacao,Sausage,FALSE,136,202,37,17,A
+67,136,FALSE,FALSE,Flareon,2,2,Skills,Cooking Power-Up S,Leppa,Milk,Cacao,Sausage,FALSE,136,202,45,14,S-
+68,196,FALSE,FALSE,Espeon,2,2,Skills,Charge Strength M ,Mago,Milk,Cacao,Sausage,FALSE,136,202,40,16,S-
+69,197,FALSE,FALSE,Umbreon,2,2,Skills,Charge Energy S,Wiki,Milk,Cacao,Sausage,FALSE,136,202,53,14,B-
+70,470,FALSE,FALSE,Leafeon,2,2,Skills,Energizing Cheer S,Durin,Milk,Cacao,Sausage,FALSE,136,202,50,13,B
+71,471,FALSE,FALSE,Glaceon,2,2,Skills,Cooking Power-Up S,Rawst,Milk,Cacao,Sausage,FALSE,136,202,53,12,B+
+72,700,FALSE,FALSE,Sylveon,2,2,Skills,Energy for Everyone S,Pecha,Milk,Cacao,Sausage,FALSE,136,202,43,15,S-
+73,147,FALSE,FALSE,Dratini,3,1,Ingredients,Charge Energy S,Yache,Herb,Corn,Oil,FALSE,,,,,
+74,148,FALSE,FALSE,Dragonair,3,2,Ingredients,Charge Energy S,Yache,Herb,Corn,Oil,FALSE,,,,,
+75,149,FALSE,FALSE,Dragonite,3,3,Ingredients,Charge Energy S,Yache,Herb,Corn,Oil,FALSE,,,,,
+76,152,TRUE,TRUE,Chikorita,3,1,Berries,Charge Strength S - Var,Durin,Cacao,Honey,Leek,FALSE,227,336,73,12,B-
+77,153,TRUE,TRUE,Bayleef,3,2,Berries,Charge Strength S - Var,Durin,Cacao,Honey,Leek,FALSE,227,336,55,17,B+
+78,154,FALSE,FALSE,Meganium,3,3,Berries,Charge Strength S - Var,Durin,Cacao,Honey,Leek,FALSE,227,336,47,20,A+
+79,155,TRUE,FALSE,Cyndaquil,3,1,Berries,Charge Strength S - Var,Leppa,Ginger,Herb,Oil,FALSE,174,248,58,14,B
+80,156,FALSE,FALSE,Quilava,3,2,Berries,Charge Strength S - Var,Leppa,Ginger,Herb,Oil,FALSE,174,248,50,18,A-
+81,157,FALSE,FALSE,Typhlosion,3,3,Berries,Charge Strength S - Var,Leppa,Ginger,Herb,Oil,FALSE,174,248,40,23,S
+82,158,TRUE,TRUE,Totodile,3,1,Berries,Charge Strength S - Var,Oran,Sausage,Oil,,FALSE,164,238,75,11,C+
+83,159,FALSE,FALSE,Croconaw,3,2,Berries,Charge Strength S - Var,Oran,Sausage,Oil,,FALSE,164,238,57,15,B
+84,160,FALSE,FALSE,Feraligatr,3,3,Berries,Charge Strength S - Var,Oran,Sausage,Oil,,FALSE,164,238,47,19,A
+85,175,TRUE,TRUE,Togepi,3,1,Skills,Metronome,Pecha,Egg,Ginger,Cacao,FALSE,170,263,80,8,C-
+86,176,FALSE,FALSE,Togetic,3,2,Skills,Metronome,Pecha,Egg,Ginger,Cacao,FALSE,170,263,63,10,C+
+87,468,FALSE,FALSE,Togekiss,3,3,Skills,Metronome,Pecha,Egg,Ginger,Cacao,FALSE,170,263,43,16,A-
+88,179,TRUE,TRUE,Mareep,3,1,Skills,Charge Strength M ,Grepa,Herb,Egg,,FALSE,216,308,77,9,C+
+89,180,FALSE,FALSE,Flaaffy,3,2,Skills,Charge Strength M ,Grepa,Herb,Egg,,FALSE,216,308,55,11,B+
+90,181,FALSE,FALSE,Ampharos,3,3,Skills,Charge Strength M ,Grepa,Herb,Egg,,FALSE,216,308,42,15,S
+91,438,TRUE,FALSE,Bonsly,2,1,Skills,Charge Strength M ,Sitrus,Tomato,Soybeans,Mushroom,FALSE,160,237,105,8,F
+92,185,FALSE,FALSE,Sudowoodo,2,2,Skills,Charge Strength M ,Sitrus,Tomato,Soybeans,Mushroom,FALSE,160,237,67,10,B-
+93,194,TRUE,TRUE,Wooper,2,1,Ingredients,Charge Energy S,Oran,Mushroom,Potato,Sausage,FALSE,,,,,
+94,195,FALSE,FALSE,Quagsire,2,2,Ingredients,Charge Energy S,Oran,Mushroom,Potato,Sausage,FALSE,,,,,
+95,360,TRUE,TRUE,Wynaut,2,1,Skills,Energizing Cheer S,Mago,Apple,Mushroom,Oil,FALSE,132,205,97,7,F
+96,202,TRUE,FALSE,Wobbuffet,2,2,Skills,Energizing Cheer S,Mago,Apple,Mushroom,Oil,FALSE,132,205,58,10,B-
+97,214,TRUE,FALSE,Heracross,1,1,Skills,Ingredient Magnet S,Lum,Honey,Mushroom,Sausage,FALSE,143,223,42,15,A-
+98,225,TRUE,FALSE,Dealibird,1,1,Ingredients,Ingredient Magnet S,Pamtre,Egg,Apple,Cacao,FALSE,,,,,
+99,228,TRUE,FALSE,Houndour,2,1,Berries,Charge Strength S,Wiki,Herb,Ginger,Leek,FALSE,212,309,82,10,C
+100,229,FALSE,FALSE,Houndoom,2,2,Berries,Charge Strength S,Wiki,Herb,Ginger,Leek,FALSE,212,309,55,16,B+
+101,243,TRUE,TRUE,Raiku,1,1,Skills,Helper Boost,Grepa,Sausage,Herb,Leek,TRUE,,,,,
+102,244,TRUE,TRUE,Entei,1,1,Skills,Helper Boost,Leppa,Oil,Tomato,Mushroom,FALSE,,,,,
+103,245,FALSE,FALSE,Suicune,1,1,Skills,Helper Boost,Oran,Apple,Oil,Corn,FALSE,,,,,
+104,246,TRUE,FALSE,Larvitar,3,1,Ingredients,Charge Energy S,Sitrus,Ginger,Soybeans,Sausage,FALSE,370,512,80,9,C
+105,247,FALSE,FALSE,Pupitar,3,2,Ingredients,Charge Energy S,Sitrus,Ginger,Soybeans,Sausage,FALSE,370,512,60,13,B-
+106,248,FALSE,FALSE,Tyranitar,3,3,Ingredients,Charge Energy S,Wiki,Ginger,Soybeans,Sausage,FALSE,370,512,45,19,A+
+107,280,TRUE,FALSE,Ralts,3,1,Skills,Energy for Everyone S,Mago,Apple,Corn,Leek,FALSE,,,,,
+108,281,FALSE,FALSE,Kirlia,3,2,Skills,Energy for Everyone S,Mago,Apple,Corn,Leek,FALSE,,,,,
+109,282,FALSE,FALSE,Gardevoir,3,3,Skills,Energy for Everyone S,Mago,Apple,Corn,Leek,FALSE,,,,,
+110,475,FALSE,FALSE,Gallade,3,3,Skills,Extra Helpful S,Cheri,Apple,Corn,Leek,FALSE,,,,,
+111,287,TRUE,FALSE,Slakoth,3,1,Berries,Ingredient Magnet S,Persim,Tomato,Honey,Apple,FALSE,161,241,82,7,C
+112,288,FALSE,FALSE,Vigoroth,3,2,Berries,Ingredient Magnet S,Persim,Tomato,Honey,Apple,FALSE,161,241,53,9,A-
+113,289,FALSE,FALSE,Slaking,3,3,Berries,Ingredient Magnet S,Persim,Tomato,Honey,Apple,FALSE,161,241,63,12,A-
+114,304,TRUE,FALSE,Aron,3,1,Ingredients,Charge Energy S,Belue,Sausage,Coffee,Soybeans,FALSE,,,,,
+115,305,FALSE,FALSE,Lairon,3,2,Ingredients,Charge Energy S,Belue,Sausage,Coffee,Soybeans,FALSE,,,,,
+116,306,FALSE,FALSE,Aggron,3,3,Ingredients,Charge Energy S,Belue,Sausage,Coffee,Soybeans,FALSE,,,,,
+117,302,FALSE,FALSE,Sableye,1,1,Skills,Dream Shard Magnet S - Var,Wiki,Oil,Mushroom,Cacao,FALSE,205,301,60,10,C+
+118,316,TRUE,FALSE,Gulpin,2,1,Skills,Dream Shard Magnet S - Var,Chesto,Soybeans,Mushroom,Honey,FALSE,142,221,98,8,F
+119,317,FALSE,FALSE,Swalot,2,2,Skills,Dream Shard Magnet S - Var,Chesto,Soybeans,Mushroom,Honey,FALSE,142,221,58,13,C+
+120,333,TRUE,TRUE,Swablu,2,1,Berries,Charge Energy S,Pamtre,Egg,Soybeans,Apple,TRUE,190,272,70,12,B-
+121,334,FALSE,FALSE,Altaria,2,2,Berries,Charge Energy S,Yache,Egg,Soybeans,Apple,FALSE,190,272,62.0,14.0,B+
+122,353,TRUE,FALSE,Shuppet,2,1,Berries,Charge Strength S,Bluk,Oil,Ginger,Mushroom,FALSE,175.5,274.9,65.0,11.0,B-
+123,354,FALSE,FALSE,Banette,2,2,Berries,Charge Strength S,Bluk,Oil,Ginger,Mushroom,FALSE,175.5,274.9,43,19,S-
+124,359,FALSE,FALSE,Absol,1,1,Ingredients,Charge Strength S,Wiki,Cacao,Apple,Mushroom,FALSE,520,714,52,14,S-
+125,363,TRUE,TRUE,Spheal,3,1,Berries,Ingredient Magnet S,Rawst,Oil,Sausage,Ginger,FALSE,198,280,93,9,C-
+126,364,FALSE,FALSE,Sealeo,3,2,Berries,Ingredient Magnet S,Rawst,Oil,Sausage,Ginger,FALSE,198,280,67,13,B-
+127,365,FALSE,FALSE,Walrein,3,3,Berries,Ingredient Magnet S,Rawst,Oil,Sausage,Ginger,FALSE,198,280,50,18,A
+128,403,TRUE,FALSE,Shinx,3,1,Ingredients,Cooking Power-Up S,Grepa,Tomato,Oil,Coffee,FALSE,,,,,
+129,404,FALSE,FALSE,Luxio,3,2,Ingredients,Cooking Power-Up S,Grepa,Tomato,Oil,Coffee,FALSE,,,,,
+130,405,FALSE,FALSE,Luxray,3,3,Ingredients,Cooking Power-Up S,Grepa,Tomato,Oil,Coffee,FALSE,,,,,
+131,447,TRUE,FALSE,Riolu,2,1,Skills,Dream Shard Magnet S,Cheri,Oil,Potato,Egg,FALSE,183,282,70,9,C
+132,448,FALSE,FALSE,Lucario,2,2,Skills,Dream Shard Magnet S,Cheri,Oil,Potato,Egg,FALSE,183,282,45,14,B+
+133,453,TRUE,FALSE,Croagunk,2,1,Ingredients,Charge Strength S,Chesto,Oil,Sausage,,FALSE,401,546,93,10,C-
+134,454,FALSE,FALSE,Toxicroak,2,2,Ingredients,Charge Strength S,Chesto,Oil,Sausage,,FALSE,401,546,57,14,B+
+135,459,TRUE,TRUE,Snover,2,1,Ingredients,Charge Strength S,Rawst,Tomato,Egg,Mushroom,FALSE,,,,,
+136,460,FALSE,FALSE,Abomasnow,2,2,Ingredients,Charge Strength S,Rawst,Tomato,Egg,Mushroom,FALSE,,,,,
+137,702,TRUE,FALSE,Dedenne,1,1,Skills,Tasty Chance S,Grepa,Apple,Cacao,Corn,FALSE,,,,,
+138,736,TRUE,FALSE,Grubbin,3,1,Ingredients,Charge Strength S,Lum,Coffee,Mushroom,Honey,FALSE,,,,,
+139,737,FALSE,FALSE,Charjabug,3,2,Ingredients,Charge Strength S,Lum,Coffee,Mushroom,Honey,FALSE,,,,,
+140,738,FALSE,FALSE,Vikabolt,3,3,Ingredients,Charge Strength S,Lum,Coffee,Mushroom,Honey,FALSE,,,,,
+141,759,FALSE,FALSE,Stufful,2,1,Ingredients,Charge Strength S,Cheri,Corn,Sausage,Egg,FALSE,,,,,
+142,760,FALSE,FALSE,Bewear,2,2,Ingredients,Charge Strength S,Cheri,Corn,Sausage,Egg,FALSE,,,,,
+143,764,TRUE,TRUE,Comfey,1,1,Ingredients,Energizing Cheer S,Pecha,Corn,Ginger,Cacao,FALSE,,,,,
+144,845,FALSE,FALSE,Cramorant,1,1,Ingredients,Tasty Chance S,Pamtre,Oil,Potato,Egg,FALSE,,,,,
+145,906,TRUE,FALSE,Sprigatito,3,1,Ingredients,Cooking Power-Up S,Durin,Potato,Milk,Ginger,FALSE,,,,,
+146,907,FALSE,FALSE,Floragato,3,2,Ingredients,Cooking Power-Up S,Durin,Potato,Milk,Ginger,FALSE,,,,,
+147,908,FALSE,FALSE,Meowscarada,3,3,Ingredients,Cooking Power-Up S,Wiki,Potato,Milk,Ginger,FALSE,,,,,
+148,909,TRUE,TRUE,Fuecoco,3,1,Ingredients,Charge Energy S,Leppa,Apple,Sausage,Herb,FALSE,,,,,
+149,910,FALSE,FALSE,Crocalor,3,2,Ingredients,Charge Energy S,Leppa,Apple,Sausage,Herb,FALSE,,,,,
+150,911,FALSE,FALSE,Skeledirge,3,3,Ingredients,Charge Energy S,Bluk,Apple,Sausage,Herb,FALSE,,,,,
+151,912,TRUE,TRUE,Quaxly,3,1,Ingredients,Charge Strength M ,Oran,Soybeans,Leek,Oil,FALSE,,,,,
+152,913,FALSE,FALSE,Quaxwell,3,2,Ingredients,Charge Strength M ,Oran,Soybeans,Leek,Oil,FALSE,,,,,
+153,914,FALSE,FALSE,Quaquaval,3,3,Ingredients,Charge Strength M ,Cheri,Soybeans,Leek,Oil,FALSE,,,,,

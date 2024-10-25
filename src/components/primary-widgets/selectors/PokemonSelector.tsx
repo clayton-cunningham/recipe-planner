@@ -6,6 +6,7 @@ import { Column } from "../../generic/Column";
 import { Pill } from "../../generic/Pill";
 import { HoverHighlight } from "../../generic/HoverHighlight";
 import { CloseButton } from "../../generic/CloseButton";
+import { formatIdForPng } from "../helpers";
 
 export const PokemonSelector = (props: 
     {typeGroup: TypeGroup, context: AppContext, excludeLevel60: boolean, 
@@ -16,7 +17,7 @@ export const PokemonSelector = (props:
     var dexEntry = pokedex.find(p => p.name == typeGroup.default)!;
     if (dexEntry == undefined) return null;
 
-    var monState = context.selectedPokemon.find(oP => oP.id == dexEntry.id);
+    var monState = context.selectedPokemon.find(oP => oP.DexNumber == dexEntry.dexNumber);
 
     const getIngredientPillState = (monState: BoxEntry | undefined, hasIngredient: boolean | undefined) => {
         if (monState?.Perf && hasIngredient) return "down-1";
@@ -36,8 +37,7 @@ export const PokemonSelector = (props:
             <div onClick={() => mainAction(dexEntry)}>
                 <div className="main-icon">
                     <img
-                        src={dexEntry.portraitUri} 
-                        // src={formatIdForPng(p.id)} 
+                        src={formatIdForPng(dexEntry.dexNumber)} 
                         className="img-m"
                     />
                     <Row className="sub-icon-group">
@@ -47,9 +47,9 @@ export const PokemonSelector = (props:
 
                             return (
                                 <img
-                                    key={subDexEntry.id + "_sub-dex-entry"}
+                                    key={subDexEntry.dexNumber + "_sub-dex-entry"}
                                     className="img-xs"
-                                    src={subDexEntry.portraitUri}
+                                    src={formatIdForPng(subDexEntry.dexNumber)}
                                 />
                             )
                         })}

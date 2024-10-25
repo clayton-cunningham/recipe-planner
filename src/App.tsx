@@ -16,7 +16,7 @@ function App() {
   const [selectedPokemon, setOwnedPokemon] = useState<BoxEntry[]>(pokemonBox);
 
   const togglePokemon = (source: Pokemon) => {
-      const index = selectedPokemon.findIndex(oP => oP.id == source.id);
+      const index = selectedPokemon.findIndex(oP => oP.DexNumber == source.dexNumber);
       if (index == -1) {
         throw new Error("Pokemon not found!");
       }
@@ -29,7 +29,7 @@ function App() {
   }
 
   const selectPokemon = (source: Pokemon) => {
-      const index = selectedPokemon.findIndex(oP => oP.id == source.id);
+      const index = selectedPokemon.findIndex(oP => oP.DexNumber == source.dexNumber);
       if (index == -1) {
         throw new Error("Pokemon not found!");
       }
@@ -42,7 +42,7 @@ function App() {
   }
 
   const selectPokemonIngredients = (source: Pokemon, lvl: IngredientLevel) => {
-      const index = selectedPokemon.findIndex(oP => oP.id == source.id);
+      const index = selectedPokemon.findIndex(oP => oP.DexNumber == source.dexNumber);
       if (index == -1) {
         throw new Error("Pokemon not found!");
       }

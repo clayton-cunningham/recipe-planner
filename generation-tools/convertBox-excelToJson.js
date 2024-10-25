@@ -1,3 +1,13 @@
 const { getPokemon } = require("./excelToJson");
 
-getPokemon("pokemonBox");
+const keys = [
+    "DexNumber",
+    "Pokemon",
+]
+
+const keyIndexes = [
+    1,
+    4,
+]
+
+getPokemon("pokemonBox", keys, keyIndexes);
