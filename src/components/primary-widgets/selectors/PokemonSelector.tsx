@@ -82,7 +82,7 @@ export const PokemonSelector = (props:
                             }}
                         />
                     </HoverHighlight>
-                    {dexEntry.ingredient_3 ?
+                    {dexEntry.ingredient_3 && dexEntry.ingredient_3 != "0" ?
                         <HoverHighlight className="img-xs">
                             <Pill vertical={true} className={"grey " + getExcludePillState(excludeLevel60)} />
                             <Pill vertical={true} className={"green " + getIngredientPillState(monState, monState?.ingredientLevel60)} />
