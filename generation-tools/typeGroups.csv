@@ -65,6 +65,7 @@ Shuppet_Bluk,Shuppet,Banette,,Banette,Bluk
 Absol_Wiki,Absol,,,Absol,Wiki
 Spheal_Rawst,Spheal,Sealeo,Walrein,Walrein,Rawst
 Shinx_Grepa,Shinx,Luxio,Luxray,Luxray,Grepa
+Drifloon_Bluk,Drifloon,Drifblim,,Drifblim,Bluk
 Riolu_Cheri,Riolu,Lucario,,Lucario,Cheri
 Croagunk_Chesto,Croagunk,Toxicroak,,Toxicroak,Chesto
 Snover_Rawst,Snover,Abomasnow,,Abomasnow,Rawst
@@ -72,10 +73,13 @@ Dedenne_Grepa,Dedenne,,,Dedenne,Grepa
 Grubbin_Lum,Grubbin,Charjabug,Vikabolt,Vikabolt,Lum
 Stufful_Cheri,Stufful,Bewear,,Bewear,Cheri
 Comfey_Pecha,Comfey,,,Comfey,Pecha
+Mimikyu_Bluk,Mimikyu,,,Mimikyu,Bluk
 Cramorant_Pamtre,Cramorant,,,Cramorant,Pamtre
 Sprigatito_Durin,Sprigatito,Floragato,,Sprigatito,Durin
 Sprigatito_Wiki,Meowscarada,,,Meowscarada,Wiki
 Fuecoco_Leppa,Fuecoco,Crocalor,,Fuecoco,Leppa
 Fuecoco_Bluk,Skeledirge,,,Skeledirge,Bluk
-Quaxly_Oran,Quaxly,Quaxwell,,Quaxly,Oran
-Quaxly_Cheri,Quaquaval,,,Quaquaval,Cheri
+Quaxly_Oran,Quaxly,Quaxwell,,Quaxly,
+Quaxly_Cheri,Quaquaval,,,Quaquaval,
+,",",,,,
+,",",,,,

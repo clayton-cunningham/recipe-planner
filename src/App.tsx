@@ -14,7 +14,6 @@ export type AppContext = {
 
 const getBoxInit = () => {
   const cookie = getBoxCookie();
-  console.log(cookie)
   if (cookie.length > 0) return cookie
   return pokemonBox;
 }
