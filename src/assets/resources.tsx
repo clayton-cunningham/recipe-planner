@@ -437,6 +437,7 @@ export type BerryTypes = {
 }
 
 export const berryTypes : BerryTypes[] = [
+  { index: '0', berryName: "-", typeName: "-", berryImageUri: "close-button.png", typeImageUri: "close-button.png" },
   { index: '1', berryName: "Persim", typeName: "Normal", berryImageUri: "./berries/persimberry.png", typeImageUri: "./types/normal.png" },
   { index: '2', berryName: "Leppa", typeName: "Fire", berryImageUri: "./berries/leppaberry.png", typeImageUri: "./types/fire.png" },
   { index: '3', berryName: "Oran", typeName: "Water", berryImageUri: "./berries/oranberry.png", typeImageUri: "./types/water.png" },
