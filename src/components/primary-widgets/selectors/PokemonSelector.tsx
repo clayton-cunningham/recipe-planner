@@ -66,7 +66,7 @@ export const PokemonSelector = (props:
                             className="img-xs"
                             onClick={(event) => {
                                 // TODO: decide if we want clicking the first ingredient to remove the others (maybe long click?)
-                                // ingredientAction(dexEntry, IngredientLevel.Lvl0); 
+                                ingredientAction(dexEntry, IngredientLevel.Lvl0); 
                                 event.stopPropagation();
                             }}
                         />
