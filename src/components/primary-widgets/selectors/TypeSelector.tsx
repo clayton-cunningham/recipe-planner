@@ -4,9 +4,9 @@ import { Row } from "../../generic/Row";
 import { AppContext } from "../../../App";
 import "./Selectors.less"
 import { PokemonSelector } from "./PokemonSelector";
-import { RowColumnAdaptive } from "../../generic/RowColumnAdaptive";
 import { getCookie } from "../../../helpers/cookieHelpers";
 import ReactSelect from "react-select";
+import { Column } from "../../generic/Column";
 
 const getTitleInit = (id: string) => {
     const cookie = getCookie("t" + id);
@@ -30,7 +30,7 @@ export const TypeSelector = (props: {id: string, setPokemon: Dispatch<SetStateAc
     }, [title])
 
     return (
-        <RowColumnAdaptive className="type-selector mobile-width-90">
+        <Column className={`type-selector mobile-width-90 ${title}-background`}>
             <ReactSelect
                 className="mobile-width-90 react-select-dropdown"
                 placeholder={"Select a berry..."}
@@ -64,6 +64,6 @@ export const TypeSelector = (props: {id: string, setPokemon: Dispatch<SetStateAc
                     )
                 })}
             </Row>
-        </RowColumnAdaptive>
+        </Column>
     )
 }

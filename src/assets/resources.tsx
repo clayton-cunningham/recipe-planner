@@ -154,7 +154,7 @@ export const pokedex : Pokemon[] = [
   { dexNumber: "759", name: "Stufful", berry: "Cheri", ingredient_1: "Corn", ingredient_2: "Sausage", ingredient_3: "Egg",  },
   { dexNumber: "760", name: "Bewear", berry: "Cheri", ingredient_1: "Corn", ingredient_2: "Sausage", ingredient_3: "Egg",  },
   { dexNumber: "764", name: "Comfey", berry: "Pecha", ingredient_1: "Corn", ingredient_2: "Ginger", ingredient_3: "Cacao",  },
-  { dexNumber: "778", name: "Mimikyu", berry: "Bluk", ingredient_1: "0", ingredient_2: "0", ingredient_3: "0",  },
+  { dexNumber: "778", name: "Mimikyu", berry: "Bluk", ingredient_1: "Apple", ingredient_2: "Coffee", ingredient_3: "Mushroom",  },
   { dexNumber: "845", name: "Cramorant", berry: "Pamtre", ingredient_1: "Oil", ingredient_2: "Potato", ingredient_3: "Egg",  },
   { dexNumber: "906", name: "Sprigatito", berry: "Durin", ingredient_1: "Potato", ingredient_2: "Milk", ingredient_3: "Ginger",  },
   { dexNumber: "907", name: "Floragato", berry: "Durin", ingredient_1: "Potato", ingredient_2: "Milk", ingredient_3: "Ginger",  },
