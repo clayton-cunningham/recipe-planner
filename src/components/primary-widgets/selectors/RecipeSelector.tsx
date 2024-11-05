@@ -7,13 +7,12 @@ import { recipeTypes } from "../../../assets/resources";
 const getTitleInit = () => {
     const cookie = getCookie("r");
     if (cookie.length > 0) return cookie
-    return "Select a Recipe Type";
+    return "";
 }
 
 export const RecipeSelector = (props: {setWeeklyRecipe: Dispatch<SetStateAction<string>>}) => {
 
     const {setWeeklyRecipe} = props;
-    const [titleImg, setTitleImg] = useState("");
     const [title, setTitle] = useState(getTitleInit());
 
     useEffect(() => {
@@ -26,25 +25,29 @@ export const RecipeSelector = (props: {setWeeklyRecipe: Dispatch<SetStateAction<
         if (recipeSel == null) return;
         recipeSel.onchange = () => {
             if (recipeSel == null) return;
-            setTitleImg(""); 
             setTitle(recipeSel.value);
         }
     }
 
     return (
-        <div className="flex-1">
+        <div className={"recipe-selector-container " + (window?.innerWidth > 900 ? "flex-1" : "flex-2")}>
             <ReactSelect
                 id="recipe-selector"
+                className="react-select-dropdown"
                 placeholder={"Select a recipe type..."}
                 defaultValue={title ? {value: title, type: title} : undefined}
                 isClearable={true}
                 options={recipeTypes.map(rT => {return {value: rT, type: rT}})}
-                onChange={(recipeType) => {setTitleImg(""); setTitle(recipeType?.value ?? "");}}
+                onChange={(recipeType) => {setTitle(recipeType?.value ?? "");}}
                 formatOptionLabel={recipeType => (
                     <div key={recipeType + "-selector"}>
                         <Row>
                             <p className="flex-1">{recipeType.value}</p>
-                            {/* <img className="img-xs" src={} /> */}
+                            {(window?.innerWidth > 900 &&
+                                <>
+                                    <img className="img-xs" src={"./recipes/" + recipeType.value.toLowerCase() + ".png"} />
+                                </>
+                            )}
                         </Row>
                     </div>
                 )}

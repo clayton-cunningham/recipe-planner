@@ -22,7 +22,9 @@ export const TypeSelectors = (props: {setWeeklyRecipe: Dispatch<SetStateAction<s
     return (
         <Column>
             <Row className="selectors-header">
-                <div className="flex-1"/>
+                {(window?.innerWidth > 900 &&
+                    <div className="flex-1"/>
+                )}
                 <RecipeSelector setWeeklyRecipe={setWeeklyRecipe} />
                 <CustomSelector setPokemon={setCustomPokemon} context={context} excludeLevel60={excludeLevel60}/>
             </Row>
