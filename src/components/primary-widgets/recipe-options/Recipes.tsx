@@ -99,8 +99,10 @@ export const Recipes = (props: {weeklyPokemon: Pokemon[], weeklyRecipe: string, 
     return (
         <Column className="recipes-section">
             <Row className="recipes-header">
-                <input type="checkbox" checked={excludeLevel60} onChange={() => {setExcludeLevel60(!excludeLevel60)}} />
-                <p>Exclude Level 60 Ingredients</p>
+                <div onClick={() => {setExcludeLevel60(!excludeLevel60)}}>
+                    <input type="checkbox" checked={excludeLevel60}/>
+                    <p>Exclude Level 60 Ingredients</p>
+                </div>
             </Row>
             <Row className="recipes-lists">
                 <RecipeOptions title="Possible Recipes"             recipes={column1Recipes} titleIngredients={column1Ingredients} 

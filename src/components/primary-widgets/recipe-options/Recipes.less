@@ -17,6 +17,10 @@
     @media only screen and (max-width: 900px) {
         min-height: 70px;;
     }
+
+    justify-content: space-between;
+    height: 100%;
+    margin-bottom: 8px;
 }
 
 .recipes-lists {
@@ -58,13 +62,14 @@
 }
 
 .recipe-ingredient-list {
-    justify-content: flex-start;
     gap: 8px;
     @media only screen and (min-width: 900px) {
         width: 108px;
+        justify-content: flex-start;
     }
     @media only screen and (max-width: 900px) {
         width: 88px;
+        justify-content: center;
     }
 }
 

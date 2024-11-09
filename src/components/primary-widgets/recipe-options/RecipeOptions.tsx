@@ -2,6 +2,7 @@ import { ingredients, Recipe, RecipePossibility } from "../../../assets/resource
 import "./Recipes.less";
 import { Row } from "../../generic/Row";
 import { RowColumnAdaptive } from "../../generic/RowColumnAdaptive";
+import { Column } from "../../generic/Column";
 
 export const RecipeOptions = (props: {recipes: Recipe[], title: string, titleIngredients: string[], possible?: RecipePossibility}) => {
 
@@ -29,14 +30,14 @@ export const RecipeOptions = (props: {recipes: Recipe[], title: string, titleIng
     
     return (
         <div className="recipe-list">
-            <div className="recipe-list-title">
+            <Column className="recipe-list-title">
                 <h3>{title}</h3>
                 <Row>
                     {ingredients.filter(i => titleIngredients.find(pI => pI == i.name)).map(i =>
                         <img key={i.name + "_ingredient-obtainable"} className="img-xs" src={i.uri} />
                     )}
                 </Row>
-            </div>
+            </Column>
             <Row className="recipe-entries">
                 {recipes.map(recipe => 
                     <RowColumnAdaptive 
